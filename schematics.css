@@ -514,3 +514,38 @@
         font-size: 0.7rem;
     }
 }
+
+/* === 10. HEADER FLUID TYPOGRAPHY === */
+
+/* Large Tablets & Small Laptops */
+@media (max-width: 1024px) {
+    .schem-header h1 {
+        font-size: 2.5rem; /* Downscaling from 3rem */
+        letter-spacing: 4px; /* Tightening the tech-spacing */
+    }
+}
+
+/* Tablets & Large Phones */
+@media (max-width: 768px) {
+    .schem-header h1 {
+        font-size: 1.8rem; 
+        letter-spacing: 2px;
+        line-height: 1.2;
+    }
+    
+    .scan-line {
+        width: 120px; /* Scaling the decorative scan line to match header width */
+    }
+}
+
+/* Small Handsets (Portrait) */
+@media (max-width: 480px) {
+    .schem-header h1 {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    .schem-header {
+        margin: 25px 0; /* Reducing vertical air-gap on small screens */
+    }
+}
