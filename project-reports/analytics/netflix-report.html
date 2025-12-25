@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="report-title-tag">Project Report | Loading...</title>
+    <link rel="stylesheet" href="../../schematics.css">
+    <link rel="stylesheet" href="../../report.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schematic-body">
+
+    <div class="data-scanner-overlay"></div>
+
+    <nav class="schem-nav">
+        <a href="../../analytics.html" class="schem-back">
+            <span class="bracket">[</span> RETURN_TO_SECTOR <span class="bracket">]</span>
+        </a>
+        <div class="schem-status" id="report-status">PROJECT_ID: #NULL</div>
+    </nav>
+
+    <div class="schem-container">
+        
+        <header class="schem-header">
+            <h1 id="report-main-title">LOADING_PROJECT_DATA...</h1>
+            <div class="scan-line"></div>
+            <p id="report-subtitle">DATA_ARCHITECTURE // REPORT_V2.0</p>
+        </header>
+
+        <div class="report-grid">
+            
+            <div class="report-summary">
+                <div class="tech-card">
+                    <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                    
+                    <div class="tech-header">
+                        <span class="tech-id">SUMMARY_OVERVIEW</span>
+                        <span class="tech-status status-completed">● STATUS: DEPLOYED</span>
+                    </div>
+                    <h3>Executive Summary</h3>
+                    <p id="summary-text" class="tech-desc">
+                        Fetching project summary and core objectives...
+                    </p>
+                    <div class="report-meta">
+                        <span id="report-date">DATE: N/A</span> | 
+                        <span id="report-tech">TECH: N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewer-section">
+                <h3>PROJECT_VISUALIZATION</h3>
+                
+                <div class="viewer-window">
+                    <div id="viewer-content">
+                        <p class="tech-desc" style="text-align: center; margin-top: 50px;">
+                            Initializing Visualization Engine...
+                        </p>
+                    </div>
+                    <div class="viewer-caption">LIVE_DASHBOARD_FEED</div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a id="data-link-btn" 
+                    href="C:\Users\kyuvr\OneDrive\Documents\yuvraj\Projects\Yuvraj_Portfolio\assets\docs\Netflix+Data.xlsx - Netflix+Data.csv" 
+                    download="Netflix+Data.csv" 
+                    target="_blank" 
+                    class="schem-btn dual-btn dataset-btn" 
+                    style="width: 100%;">DOWNLOAD RAW DATA</a>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <h3>METHODOLOGY</h3>
+                <ul id="methodology-list" class="tech-list">
+                    <li>Data Cleansing & Transformation (SQL/Python)</li>
+                    <li>Feature Engineering (Machine Learning)</li>
+                    <li>Visualization & Storytelling (Power BI/Tableau)</li>
+                    <li>Deployment and Monitoring</li>
+                </ul>
+                
+                <h3>KEY_INSIGHTS</h3>
+                <ul id="insights-list" class="tech-list">
+                    <li>Insight 1: N/A</li>
+                    <li>Insight 2: N/A</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. PROJECT DATA STORE ---
+            const projectDataStore = {
+                "DAT_001": {
+                    title: "Netflix Dashboard",
+                    subtitle: "A Brief Understanding of User Streaming Preferences",
+                    summary: "Power BI Dashboard to understand and analyse user content preference according to region, genre, and rating. The project built a strategic dashboard to visualize content consumption patterns, focusing on the correlation between Content Duration and User Ratings across different regions.",
+                    date: "2023.12.20", 
+                    tech: "Python, SQL, Power BI",
+                    dataLink: "C:\\Users\\kyuvr\\OneDrive\\Documents\\yuvraj\\Projects\\Yuvraj_Portfolio\\assets\\docs\\Netflix+Data.csv",
+                    reportLink: "reports/netflix_report_final.pdf",
+                    viewer: {
+                        type: 'image', 
+                        source: '../../assets/images/image 1.png' // Main Dashboard View
+                    },
+                    gallery: [
+                        '../../assets/images/image 2.png',
+                        '../../assets/images/image 3.png'
+                    ],
+                    methodology: [
+                        "Data cleaning and feature engineering using SQL and Power BI (Power Query).",
+                        "Built DAX measures in Power BI for custom metrics (e.g., Duration vs. Rating correlation).",
+                        "Performed Exploratory Data Analysis (EDA) to segment content by maturity ratings (TV MA, PG-13).",
+                        "Standard process from data cleaning to data visualization."
+                    ],
+                    insights: [
+                        "Built a strategic dashboard to visualize content consumption patterns, focusing on the correlation between Content Duration and User Ratings across different regions.",
+                        "Perfformed exploratory data analysis (EDA) on the Netflix dataset to segment content by maturity ratings, revealing a dominant preference for mature content in key markets.",
+                        "Discovered that International Movies account for the largest share of the library, suggesting a successful localization strategy."
+                    ]
+                },
+                "DAT_002": {
+                    title: "Stock Market Predictor (WIP)",
+                    subtitle: "Python LSTM Model for Short-Term Forecasting",
+                    summary: "An ongoing deep learning initiative focused on mitigating risk by predicting short-term stock volatility. The current phase involves finalizing hyperparameters and training the model on historical NSE data.",
+                    date: "2025.Q2",
+                    tech: "Python, TensorFlow, LSTM, AWS",
+                    dataLink: "data/nse_historical.csv",
+                    reportLink: "reports/stock_predictor_WIP.pdf",
+                    viewer: {
+                        type: 'image', 
+                        source: 'images/stock_predictor_wireframe.png'
+                    },
+                    gallery: [],
+                    methodology: [
+                        "API integration for real-time data ingestion (complete).",
+                        "Normalization and sequence generation for LSTM input.",
+                        "Model architecture design (currently 3 LSTM layers).",
+                        "Hyperparameter tuning (in progress)."
+                    ],
+                    insights: [
+                        "Current F1 score is 0.75, target is 0.85.",
+                        "Training time reduced by 40% after migrating to AWS SageMaker.",
+                    ]
+                }
+            };
+
+            // --- 2. GET PROJECT ID FROM URL ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+
+            const data = projectDataStore[projectId];
+
+            if (data) {
+                // --- 3. INJECT MAIN DATA ---
+                document.getElementById('report-title-tag').textContent = `${data.title} | Report`;
+                document.getElementById('report-status').textContent = `PROJECT_ID: ${projectId}`;
+                document.getElementById('report-main-title').textContent = data.title.toUpperCase();
+                document.getElementById('report-subtitle').textContent = data.subtitle;
+                document.getElementById('summary-text').textContent = data.summary;
+                document.getElementById('report-date').textContent = `DATE: ${data.date}`;
+                document.getElementById('report-tech').textContent = `TECH: ${data.tech}`;
+                document.getElementById('data-link-btn').href = data.dataLink;
+
+                // --- 4. INJECT VIEWER CONTENT (Dashboard/Image) ---
+                const viewerContent = document.getElementById('viewer-content');
+                if (data.viewer.type === 'iframe') {
+                    viewerContent.innerHTML = `
+                        <iframe 
+                            src="${data.viewer.source}" 
+                            frameborder="0" 
+                            allowFullScreen="true">
+                        </iframe>
+                    `;
+                    viewerContent.classList.add('iframe-viewer');
+                } else if (data.viewer.type === 'image') {
+                     // Main Image Injection with ID for swapping
+                     viewerContent.innerHTML = `
+                        <img id="main-viewer-img" src="${data.viewer.source}" alt="${data.title} Visualization">
+                    `;
+                    viewerContent.classList.remove('iframe-viewer');
+                    
+                    // --- Inject Image Gallery ---
+                    if (data.gallery && data.gallery.length > 0) {
+                        const galleryHTML = data.gallery.map(imgSrc => `
+                            <img src="${imgSrc}" alt="Dashboard Supplemental View" onclick="document.getElementById('main-viewer-img').src='${imgSrc}'">
+                        `).join('');
+
+                        document.querySelector('.viewer-section').innerHTML += `
+                            <div class="image-gallery-scroll">
+                                ${galleryHTML}
+                            </div>
+                            <div class="viewer-caption">SUPPLEMENTARY_VIEWS // CLICK_TO_ENLARGE</div>
+                        `;
+                    }
+                }
+
+                // --- 5. INJECT LISTS ---
+                const methodologyList = document.getElementById('methodology-list');
+                const insightsList = document.getElementById('insights-list');
+                
+                methodologyList.innerHTML = data.methodology.map(item => `<li>${item}</li>`).join('');
+                insightsList.innerHTML = data.insights.map(item => `<li>${item}</li>`).join('');
+
+            } else {
+                // Handle case where project ID is missing or invalid
+                document.getElementById('report-main-title').textContent = "ERROR 404: PROJECT FILE NOT FOUND";
+                document.getElementById('report-subtitle').textContent = "VERIFY PROJECT ID AND ARCHIVE STATUS";
+                document.getElementById('data-link-btn').classList.add('disabled');
+            }
+        });
+    </script>
+</body>
+</html>

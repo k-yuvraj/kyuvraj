@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Sales | Report</title>
+    <link rel="stylesheet" href="../../schematics.css">
+    <link rel="stylesheet" href="../../report.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schematic-body">
+
+    <div class="data-scanner-overlay"></div>
+
+    <nav class="schem-nav">
+        <a href="../../analytics.html" class="schem-back">
+            <span class="bracket">[</span> RETURN_TO_SECTOR <span class="bracket">]</span>
+        </a>
+        <div class="schem-status" id="report-status">PROJECT_ID: LOADING...</div>
+    </nav>
+
+    <div class="schem-container">
+        
+        <header class="schem-header">
+            <h1 id="report-main-title">LOADING_DATA...</h1>
+            <div class="scan-line"></div>
+            <p id="report-subtitle">BUSINESS_INTELLIGENCE // SALES_METRICS</p>
+        </header>
+
+        <div class="report-grid">
+            
+            <div class="report-summary">
+                <div class="tech-card">
+                    <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                    
+                    <div class="tech-header">
+                        <span class="tech-id">SUMMARY_OVERVIEW</span>
+                        <span class="tech-status status-completed">● STATUS: DEPLOYED</span>
+                    </div>
+                    <h3>Executive Summary</h3>
+                    <p id="summary-text" class="tech-desc">
+                        Fetching project summary...
+                    </p>
+                    <div class="report-meta">
+                        <span id="report-date">DATE: N/A</span> | 
+                        <span id="report-tech">TECH: N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewer-section">
+                <h3>PROJECT_VISUALIZATION</h3>
+                
+                <div class="viewer-window">
+                    <div id="viewer-content">
+                        <p class="tech-desc" style="text-align: center; margin-top: 50px;">
+                            Initializing Visualization Engine...
+                        </p>
+                    </div>
+                    <div class="viewer-caption">LIVE_DASHBOARD_FEED</div>
+                </div>
+                
+                <div id="gallery-container"></div>
+
+                <div class="action-buttons">
+                    <a id="data-link-btn" 
+                    href="../../assets/docs/Classic_Models.xlsx" 
+                    download 
+                    target="_blank" 
+                    class="schem-btn dual-btn dataset-btn" 
+                    style="width: 100%;">DOWNLOAD DATASET</a>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <h3>METHODOLOGY</h3>
+                <ul id="methodology-list" class="tech-list"></ul>
+                
+                <h3>KEY_INSIGHTS</h3>
+                <ul id="insights-list" class="tech-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. PROJECT DATA STORE ---
+            const projectDataStore = {
+                "DAT_002": {
+                    title: "Automotive Sales Dashboard",
+                    subtitle: "Strategic Analysis of Regional Sales & Profitability",
+                    summary: "A comprehensive Power BI dashboard designed to track Sales, Profit, and Quantity metrics across global markets. The solution provides granular analysis of regional performance, allowing stakeholders to identify high-value territories and underperforming product lines.",
+                    date: "2024.12.15", 
+                    tech: "Power BI, SQL, Excel",
+                    dataLink: "../../assets/docs/Classic_Models.xlsx", 
+                    viewer: {
+                        type: 'image', 
+                        source: '../../assets/images/image 4.png' 
+                    },
+                    gallery: [
+                        '../../assets/images/image 5.png',
+                        '../../assets/images/image 6.png'
+                    ],
+                    methodology: [
+                        "ETL Process: Cleaned raw sales data using Power Query to handle missing values and standardized region codes.",
+                        "Data Modeling: Created a Star Schema connecting Sales Fact tables with Dimensions (Product, Region, Time).",
+                        "DAX Calculations: Developed complex measures for Year-over-Year (YoY) Growth, Profit Margin %, and YTD Sales.",
+                        "UX/UI Design: Implemented bookmark navigation for seamless switching between Sales and Profit views."
+                    ],
+                    insights: [
+                        "Identified that the North American market contributes 40% of total revenue but has a lower profit margin compared to Europe.",
+                        "Discovered a seasonal dip in SUV sales during Q3, suggesting a need for targeted marketing campaigns.",
+                        "Highlighted that 'Aftermarket Parts' yield the highest profit margin (25%) despite lower sales volume."
+                    ]
+                }
+            };
+
+            // --- 2. GET PROJECT ID FROM URL ---
+            const urlParams = new URLSearchParams(window.location.search);
+            // Default to DAT_002
+            const projectId = urlParams.get('id') || "DAT_002";
+
+            const data = projectDataStore[projectId];
+
+            if (data) {
+                // --- 3. INJECT DATA ---
+                document.getElementById('report-status').textContent = `PROJECT_ID: ${projectId}`;
+                document.getElementById('report-main-title').textContent = data.title.toUpperCase();
+                document.getElementById('report-subtitle').textContent = data.subtitle;
+                document.getElementById('summary-text').textContent = data.summary;
+                document.getElementById('report-date').textContent = `DATE: ${data.date}`;
+                document.getElementById('report-tech').textContent = `TECH: ${data.tech}`;
+                document.getElementById('data-link-btn').href = data.dataLink;
+
+                // --- 4. VIEWER LOGIC ---
+                const viewerContent = document.getElementById('viewer-content');
+                
+                if (data.viewer.type === 'image') {
+                     viewerContent.innerHTML = `
+                        <img id="main-viewer-img" src="${data.viewer.source}" alt="${data.title} Visualization">
+                    `;
+                    viewerContent.classList.remove('iframe-viewer');
+                    
+                    if (data.gallery && data.gallery.length > 0) {
+                        const galleryHTML = data.gallery.map(imgSrc => `
+                            <img src="${imgSrc}" alt="Supplemental View" onclick="document.getElementById('main-viewer-img').src='${imgSrc}'">
+                        `).join('');
+
+                        document.getElementById('gallery-container').innerHTML = `
+                            <div class="image-gallery-scroll">
+                                ${galleryHTML}
+                            </div>
+                            <div class="viewer-caption">SUPPLEMENTARY_VIEWS // CLICK_TO_ENLARGE</div>
+                        `;
+                    }
+                }
+
+                // --- 5. LISTS ---
+                document.getElementById('methodology-list').innerHTML = data.methodology.map(item => `<li>${item}</li>`).join('');
+                document.getElementById('insights-list').innerHTML = data.insights.map(item => `<li>${item}</li>`).join('');
+
+            } else {
+                document.getElementById('report-main-title').textContent = "ERROR: DATA NOT FOUND";
+            }
+        });
+    </script>
+</body>
+</html>

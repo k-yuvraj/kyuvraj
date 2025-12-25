@@ -1,0 +1,139 @@
+/* LOG_PROTOCOL: TRANSMISSION_GOLD */
+:root {
+    --gold: #ffbd2e;
+    --dark-bg: #0a0a0a;
+    --glass: rgba(255, 189, 46, 0.05);
+    --border: rgba(255, 189, 46, 0.2);
+}
+
+body.log-view {
+    background-color: var(--dark-bg);
+    color: #e0e0e0;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.6;
+}
+
+/* --- LOG BREADCRUMB --- */
+.log-breadcrumb {
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.log-breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+/* --- THE LOG PANEL --- */
+.log-full-content {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 3rem;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.log-full-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gold);
+}
+
+/* --- TYPOGRAPHY --- */
+h1.glitch-text {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 189, 46, 0.3);
+}
+
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+}
+
+.highlight {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* --- DECRYPTION PANEL (CODE) --- */
+.decryption-panel {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.panel-header {
+    font-size: 0.7rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* --- BUTTON REFINEMENT --- */
+.gold-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+    background: transparent;
+}
+
+.gold-btn:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 15px var(--gold);
+}
+
+/* --- POETIC FOOTER --- */
+.poetic-closure {
+    margin-top: 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+
+.hindi {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+/* --- LOG_MOBILE_OPTIMIZATION --- */
+
+@media (max-width: 480px) {
+    .log-full-content {
+        padding: 1.5rem; /* Reduce padding for small screens */
+    }
+
+    h1.glitch-text {
+        font-size: 1.8rem;
+    }
+
+    .decryption-panel {
+        padding: 1rem;
+        font-size: 0.75rem; /* Ensure code doesn't wrap poorly */
+        overflow-x: auto;   /* Allow horizontal scroll for long code lines */
+    }
+}

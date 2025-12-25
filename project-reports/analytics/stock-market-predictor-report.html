@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="report-title-tag">Development Status | Loading...</title>
+    <link rel="stylesheet" href="../../schematics.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schematic-body">
+
+    <div class="data-scanner-overlay"></div>
+
+    <nav class="schem-nav">
+        <a href="../../analytics.html" class="schem-back">
+            <span class="bracket">[</span> RETURN_TO_SECTOR <span class="bracket">]</span>
+        </a>
+        <div class="schem-status" id="report-status">PROJECT_ID: #NULL</div>
+    </nav>
+
+    <div class="schem-container">
+        
+        <header class="schem-header">
+            <h1 id="report-main-title">LOADING_PROJECT_DATA...</h1>
+            <div class="scan-line"></div>
+            <p id="report-subtitle">DEVELOPMENT_STATUS // PROGRESS_OVERVIEW</p>
+        </header>
+
+        <div class="report-grid">
+            
+            <div class="report-summary">
+                <div class="tech-card" id="summary-card">
+                    <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                    
+                    <div class="tech-header">
+                        <span class="tech-id">SUMMARY_OVERVIEW</span>
+                        <span class="tech-status status-ongoing" id="report-summary-status">● STATUS: WORK_IN_PROGRESS</span>
+                    </div>
+                    <h3>Executive Summary</h3>
+                    <p id="summary-text" class="tech-desc">
+                        Fetching project summary and core objectives...
+                    </p>
+                    <div class="report-meta">
+                        <span id="report-date">DATE: N/A</span> | 
+                        <span id="report-tech">TECH: N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewer-section">
+                <h3 id="viewer-title">DEVELOPMENT_MILESTONES</h3>
+                
+                <div class="viewer-window" id="viewer-window" style="height: auto !important; padding-bottom: 0;">
+                    <div id="viewer-content">
+                         </div>
+                    <div class="viewer-caption" id="viewer-caption">ESTIMATED_PROGRESS_OVERVIEW</div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a id="data-link-btn" href="#" target="_blank" class="schem-btn dual-btn dataset-btn" style="width: 100%;">ACCESS PROJECT REPOSITORY</a>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <h3>METHODOLOGY</h3>
+                <ul id="methodology-list" class="tech-list"></ul>
+                
+                <h3>KEY_INSIGHTS</h3>
+                <ul id="insights-list" class="tech-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Progress Bar CSS (for surgical injection)
+        const progressStyles = `
+            .progress-bar-container { padding: 30px; }
+            .progress-bar-item { margin-bottom: 25px; }
+            .progress-bar-outer-report {
+                background: rgba(0, 240, 255, 0.1);
+                height: 20px;
+                border: 1px solid rgba(0, 240, 255, 0.3);
+                overflow: hidden;
+            }
+            .progress-bar-inner-report {
+                height: 100%;
+                background: linear-gradient(90deg, #ffcc00 0%, #ff6600 100%); 
+                transition: width 1s ease-out;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding-right: 8px;
+                box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+            }
+            .progress-bar-inner-report span {
+                font-size: 0.8rem;
+                font-family: 'Share Tech Mono', monospace;
+                color: #000;
+                font-weight: bold;
+                text-shadow: 0 0 2px #fff;
+            }
+            .progress-bar-item .progress-label {
+                display: block;
+                font-size: 1rem;
+                color: #fff;
+                margin-bottom: 8px;
+                font-family: 'Rajdhani', sans-serif;
+                letter-spacing: 1px;
+            }
+            #viewer-window {
+                height: auto;
+                padding-bottom: 0 !important;
+            }
+        `;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- INJECT STYLES DIRECTLY INTO HEAD FOR HIGHEST SPECIFICITY ---
+            const styleElement = document.createElement('style');
+            styleElement.textContent = progressStyles;
+            document.head.appendChild(styleElement);
+
+            // --- 1. PROJECT DATA STORE ---
+            const projectDataStore = {
+                "DAT_005": { // <--- FIXED: CHANGED FROM DAT_002 TO DAT_005
+                    status: "ongoing", 
+                    title: "Stock Market Predictor (WIP)",
+                    subtitle: "Python LSTM Model for Short-Term Forecasting",
+                    summary: "An ongoing deep learning initiative focused on mitigating risk by predicting short-term stock volatility. The current phase involves finalizing hyperparameters and training the model on historical NSE data.",
+                    date: "2025.Q2",
+                    tech: "Python, TensorFlow, LSTM, AWS",
+                    dataLink: "data/nse_historical.csv",
+                    reportLink: "#", // Update this if you have a GitHub repo link
+                    progress: { 
+                        "Data Ingestion": 100, 
+                        "Model Training": 75, 
+                        "Feature Refinement": 60,
+                        "Deployment Plan": 20
+                    },
+                    methodology: [
+                        "API integration for real-time data ingestion (complete).",
+                        "Normalization and sequence generation for LSTM input.",
+                        "Model architecture design (currently 3 LSTM layers).",
+                        "Hyperparameter tuning (in progress)."
+                    ],
+                    insights: [
+                        "Current F1 score is 0.75, target is 0.85.",
+                        "Training time reduced by 40% after migrating to AWS SageMaker.",
+                    ]
+                }
+            };
+
+            // --- 2. GET PROJECT ID FROM URL ---
+            const urlParams = new URLSearchParams(window.location.search);
+            // FIXED: Default to DAT_005 if no ID is found (prevents 404 when opening file directly)
+            const projectId = urlParams.get('id') || "DAT_005";
+
+            const data = projectDataStore[projectId];
+
+            const viewerContent = document.getElementById('viewer-content');
+            const dataLinkBtn = document.getElementById('data-link-btn');
+
+            if (data) {
+                // --- 3. INJECT MAIN DATA ---
+                document.getElementById('report-title-tag').textContent = `${data.title} | Status`;
+                document.getElementById('report-status').textContent = `PROJECT_ID: ${projectId}`;
+                document.getElementById('report-main-title').textContent = data.title.toUpperCase();
+                document.getElementById('report-subtitle').textContent = data.subtitle;
+                document.getElementById('summary-text').textContent = data.summary;
+                document.getElementById('report-date').textContent = `DATE: ${data.date}`;
+                document.getElementById('report-tech').textContent = `TECH: ${data.tech}`;
+                document.getElementById('data-link-btn').href = data.reportLink; 
+                
+                // --- 4. INJECT PROGRESS BAR CONTENT ---
+                let progressHTML = '<div class="progress-bar-container">';
+                for (const task in data.progress) {
+                    const percent = data.progress[task];
+                    progressHTML += `
+                        <div class="progress-bar-item">
+                            <span class="progress-label">${task}</span>
+                            <div class="progress-bar-outer-report">
+                                <div class="progress-bar-inner-report" style="width: ${percent}%;">
+                                    <span>${percent}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                progressHTML += '</div>';
+                viewerContent.innerHTML = progressHTML;
+
+                // --- 5. INJECT LISTS ---
+                document.getElementById('methodology-list').innerHTML = data.methodology.map(item => `<li>${item}</li>`).join('');
+                document.getElementById('insights-list').innerHTML = data.insights.map(item => `<li>${item}</li>`).join('');
+
+            } else {
+                // Handle error
+                document.getElementById('report-main-title').textContent = "ERROR 404: PROJECT FILE NOT FOUND";
+                document.getElementById('report-subtitle').textContent = "VERIFY PROJECT ID AND ARCHIVE STATUS";
+                dataLinkBtn.classList.add('disabled');
+            }
+        });
+    </script>
+</body>
+</html>

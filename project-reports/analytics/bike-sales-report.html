@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Sales Analysis | Report</title>
+    <link rel="stylesheet" href="../../schematics.css">
+    <link rel="stylesheet" href="../../report.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schematic-body">
+
+    <div class="data-scanner-overlay"></div>
+
+    <nav class="schem-nav">
+        <a href="../../analytics.html" class="schem-back">
+            <span class="bracket">[</span> RETURN_TO_SECTOR <span class="bracket">]</span>
+        </a>
+        <div class="schem-status" id="report-status">PROJECT_ID: DAT_004</div>
+    </nav>
+
+    <div class="schem-container">
+        
+        <header class="schem-header">
+            <h1 id="report-main-title">LOADING_DATA...</h1>
+            <div class="scan-line"></div>
+            <p id="report-subtitle">RETAIL_ANALYTICS // SALES_PERFORMANCE</p>
+        </header>
+
+        <div class="report-grid">
+            
+            <div class="report-summary">
+                <div class="tech-card">
+                    <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                    
+                    <div class="tech-header">
+                        <span class="tech-id">SUMMARY_OVERVIEW</span>
+                        <span class="tech-status status-completed">● STATUS: DEPLOYED</span>
+                    </div>
+                    <h3>Executive Summary</h3>
+                    <p id="summary-text" class="tech-desc">
+                        Fetching project summary...
+                    </p>
+                    <div class="report-meta">
+                        <span id="report-date">DATE: N/A</span> | 
+                        <span id="report-tech">TECH: N/A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewer-section">
+                <h3>LIVE_DATA_INTERFACE</h3>
+                
+                <div class="viewer-window" style="overflow: hidden; height: auto;"> 
+                    <div id="viewer-content">
+                        
+                        <div class='tableauPlaceholder' id='viz1765978978608' style='position: relative'>
+                            <noscript><a href='#'><img alt='          Bike Sales Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;24&#47;249FFZG8P&#47;1_rss.png' style='border: none' /></a></noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                <param name='embed_code_version' value='3' /> 
+                                <param name='path' value='shared&#47;249FFZG8P' /> 
+                                <param name='toolbar' value='yes' />
+                                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;24&#47;249FFZG8P&#47;1.png' /> 
+                                <param name='animate_transition' value='yes' />
+                                <param name='display_static_image' value='yes' />
+                                <param name='display_spinner' value='yes' />
+                                <param name='display_overlay' value='yes' />
+                                <param name='display_count' value='yes' />
+                                <param name='language' value='en-US' />
+                                <param name='filter' value='publish=yes' />
+                            </object>
+                        </div>                
+                        <script type='text/javascript'>                    
+                            var divElement = document.getElementById('viz1765978978608');                    
+                            var vizElement = divElement.getElementsByTagName('object')[0];                    
+                            if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1100px';vizElement.style.height='627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1100px';vizElement.style.height='627px';} else { vizElement.style.width='100%';vizElement.style.height='2077px';}                     
+                            var scriptElement = document.createElement('script');                    
+                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                            vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                        </script>
+                        </div>
+                </div>
+                <div class="viewer-caption">INTERACTIVE_DASHBOARD // LIVE_CONNECTION</div>
+                
+                <div class="action-buttons">
+                    <a id="data-link-btn" href="#" download target="_blank" class="schem-btn dual-btn dataset-btn" style="width: 100%;">DOWNLOAD RAW DATA</a>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <h3>METHODOLOGY</h3>
+                <ul id="methodology-list" class="tech-list"></ul>
+                
+                <h3>KEY_INSIGHTS</h3>
+                <ul id="insights-list" class="tech-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. PROJECT DATA STORE (Text Content Only) ---
+            const projectDataStore = {
+                "DAT_004": { 
+                    title: "Bike Sales Dashboard",
+                    subtitle: "Customer Demographics & Regional Performance",
+                    summary: "A retail analytics dashboard tracking sales performance for bikes and accessories. The project focuses on identifying high-value customer segments based on age, occupation, and commute distance, while also mapping regional sales trends.",
+                    date: "2024.10.05", 
+                    tech: "Power BI, Excel, SQL",
+                    // Ensure this file exists in assets/docs/
+                    dataLink: "../../assets/docs/Bike_Sales.csv", 
+                    
+                    methodology: [
+                        "Data Cleaning: Removed duplicates and standardized currency formats using Power Query.",
+                        "Data Modeling: Created relationships between Customer, Product, and Sales tables.",
+                        "Visualization: Designed interactive charts to filter sales by Region, Occupation, and Age Bracket.",
+                        "Trend Analysis: Calculated year-over-year growth to identify top-performing product categories."
+                    ],
+                    insights: [
+                        "Professionals commuting 0-1 miles purchase the highest volume of road bikes.",
+                        "North America region accounts for 50% of total sales, followed by Europe at 30%.",
+                        "The 35-45 age group shows the highest conversion rate for premium accessories."
+                    ]
+                }
+            };
+
+            // --- 2. GET PROJECT ID FROM URL ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id') || "DAT_004";
+
+            const data = projectDataStore[projectId];
+
+            if (data) {
+                // --- 3. INJECT TEXT DATA ---
+                document.getElementById('report-status').textContent = `PROJECT_ID: ${projectId}`;
+                document.getElementById('report-main-title').textContent = data.title.toUpperCase();
+                document.getElementById('report-subtitle').textContent = data.subtitle;
+                document.getElementById('summary-text').textContent = data.summary;
+                document.getElementById('report-date').textContent = `DATE: ${data.date}`;
+                document.getElementById('report-tech').textContent = `TECH: ${data.tech}`;
+                document.getElementById('data-link-btn').href = data.dataLink;
+
+                // --- 4. LISTS ---
+                document.getElementById('methodology-list').innerHTML = data.methodology.map(item => `<li>${item}</li>`).join('');
+                document.getElementById('insights-list').innerHTML = data.insights.map(item => `<li>${item}</li>`).join('');
+                
+                // Note: Viewer injection logic removed to preserve hardcoded Tableau embed
+
+            } else {
+                document.getElementById('report-main-title').textContent = "ERROR: DATA NOT FOUND";
+            }
+        });
+    </script>
+</body>
+</html>
