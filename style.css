@@ -1,0 +1,1914 @@
+/* === LOADER STYLES === */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999; /* Always on top */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth mechanical slide */
+}
+
+/* The Slide Up Action */
+.slide-up {
+    transform: translateY(-100%);
+}
+
+/* === ARC REACTOR MARK I === */
+
+.reactor-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* 1. The Outer Casing (Mechanical Ring) */
+.reactor-outer-casing {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid rgba(76, 201, 240, 0.3);
+    box-shadow: 0 0 10px rgba(76, 201, 240, 0.2);
+    animation: slowSpin 10s linear infinite;
+}
+
+/* 2. The Coils (The segmented blocks) */
+.reactor-coils {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    /* THICK DASHED BORDER creates the segments */
+    border: 25px dashed #4cc9f0; 
+    box-shadow: 0 0 20px #4cc9f0, inset 0 0 20px #4cc9f0;
+    opacity: 0.8;
+    animation: reactorPulse 2s ease-in-out infinite alternate;
+}
+
+/* 3. The Inner Tunnel (Dark gap between coils and core) */
+.reactor-inner-ring {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
+    /* INCREASED inner glow to support the core brightness */
+    box-shadow: inset 0 0 30px #4cc9f0;
+}
+
+/* 4. The Core (The White Hot Center) */
+.reactor-core {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    background-color: #ffffff;
+    border-radius: 50%;
+    /* ADDED more layers of intense blue glow with larger spread */
+    box-shadow: 
+        0 0 25px #fff,  /* White hot center */
+        0 0 60px #4cc9f0, /* Intense inner blue */
+        0 0 120px #4cc9f0, /* Radiating blue */
+        0 0 180px rgba(76, 201, 240, 0.9); /* Far-reaching blue aura */
+    animation: coreFlicker 0.1s infinite alternate;
+}
+
+/* ANIMATIONS */
+
+/* Rotating the casing slowly */
+@keyframes slowSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Breathing effect for the coils */
+@keyframes reactorPulse {
+    0% { opacity: 0.7; box-shadow: 0 0 15px #4cc9f0; }
+    100% { opacity: 1; box-shadow: 0 0 40px #4cc9f0, inset 0 0 30px #4cc9f0; }
+}
+
+/* Subtle flicker for the high-energy core */
+@keyframes coreFlicker {
+    0% { opacity: 0.9; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* BOOT LOGS TEXT */
+.system-logs {
+    font-family: 'Roboto Mono', monospace;
+    color: #4cc9f0;
+    font-size: 0.9rem;
+    height: 30px; /* Fixed height to prevent jumping */
+    text-shadow: 0 0 5px #4cc9f0;
+    letter-spacing: 1px;
+}
+
+/* ANIMATIONS */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseCore {
+    0% { opacity: 0.6; box-shadow: 0 0 20px #4cc9f0; }
+    100% { opacity: 1; box-shadow: 0 0 50px #4cc9f0, 0 0 80px #fff; }
+}
+
+/* REST CSS (Hero, Nav, etc.) */
+
+/* === 1. GLOBAL DEEP BLACK SETTINGS === */
+body {
+    background-color: #000000; /* PURE BLACK */
+    color: #4cc9f0; /* Stark Cyan */
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+    /* Subtle vignette: Pure black edges, very dark navy center */
+    background-image: radial-gradient(circle at center, #0a0a0f 0%, #000000 80%);
+    background-attachment: fixed; 
+    margin: 0;
+    padding: 0;
+}
+
+/* === 2. HERO SECTION (THE HELMET VIEW) === */
+#hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: transparent; /* Allows body vignette to show */
+}
+
+/* The Hex-Mesh (Nano-Tech Texture) */
+.hero-bg-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Creates a dot-matrix "Star Map" look instead of grid lines */
+    background-image: 
+        radial-gradient(rgba(76, 201, 240, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px; 
+    z-index: 1;
+    /* Fades out the grid at the edges so it focuses on the center */
+    mask-image: radial-gradient(circle, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
+}
+
+/* The Arc Reactor Glow (Background Ambiance) */
+.arc-reactor-glow {
+    position: absolute;
+    width: 600px; 
+    height: 600px;
+    /* Soft blue pulsing aura behind the text */
+    background: radial-gradient(circle, rgba(76, 201, 240, 0.12) 0%, rgba(0, 0, 0, 0) 65%);
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: breathingGlow 6s ease-in-out infinite alternate;
+}
+
+/* === 3. TEXT STYLES (HIGH CONTRAST NEON) === */
+
+.system-text {
+    color: #4cc9f0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 4px; /* Wide tracking like HUD data */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 0 5px rgba(76, 201, 240, 0.5);
+}
+
+.glitch-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    text-shadow: 
+        0 0 2px rgba(255, 255, 255, 0.8), /* Sharp white edge */
+        0 0 10px rgba(76, 201, 240, 0.5); /* Soft, subtle blue aura */
+}
+
+.typing-text {
+    font-family: 'Roboto Mono', monospace;
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    border-right: 2px solid #4cc9f0; /* The cursor */
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 40px;
+    width: 0;
+    animation: typing 3s steps(30, end) forwards;
+    animation-delay: 5s; /* Waits for loader + slide up */
+}
+
+/* === 4. HUD CORNER BRACKETS === */
+.hud-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #4cc9f0;
+    z-index: 2;
+    opacity: 0.8;
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.4); /* Glow on the brackets */
+}
+
+/* Positioning the corners */
+.top-left { top: 40px; left: 40px; border-right: none; border-bottom: none; }
+.top-right { top: 40px; right: 40px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 40px; left: 40px; border-right: none; border-top: none; }
+.bottom-right { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+
+/* === 5. ANIMATIONS === */
+
+@keyframes breathingGlow {
+    0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+    100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; border-right-color: transparent; }
+}
+
+/* Responsive fixes for mobile */
+@media (max-width: 768px) {
+    .glitch-text { font-size: 2.8rem; letter-spacing: 2px; }
+    .system-text { font-size: 0.7rem; letter-spacing: 2px; }
+    .typing-text { font-size: 0.9rem; }
+    .hud-corner { width: 30px; height: 30px; top: 20px; left: 20px; }
+}
+
+/* === 6. BUTTONS & INTERFACE ELEMENTS === */
+
+.content-box {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    /* This ensures the content is hidden until the loader finishes */
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* The class JS adds to reveal the content */
+.hero-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Primary "Stark" Button */
+/* === 0. GLOBAL VARIABLES (Ensure these exist) === */
+:root {
+    --cyan: #4cc9f0;
+    --border: rgba(76, 201, 240, 0.3);
+    --font-head: 'Orbitron', sans-serif;
+    --font-body: 'Roboto Mono', monospace;
+    --font-tech: 'Roboto Mono', monospace;
+}
+
+/* === 1. ANIMATIONS (The Scanline) === */
+@keyframes scanline {
+    0% { top: -100%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* NAV LINKS UPDATE */
+.nav-links a {
+    position: relative; /* Needed for the scanline/underline */
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    transition: 0.3s;
+    overflow: hidden; /* Contains the scanline */
+}
+
+/* THE HOVER STATE */
+.nav-links a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan); /* The Glow */
+    background: rgba(0, 243, 255, 0.05); /* Slight tint */
+    border-bottom: 1px solid var(--cyan);
+}
+
+/* The Scanline Effect (Adapted for text) */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.4), transparent);
+    z-index: -1;
+    opacity: 0;
+}
+
+.nav-links a:hover::before {
+    animation: scanline 0.8s linear; /* Faster scan for small links */
+}
+
+/* BUTTON UPDATE */
+.stark-btn, .secondary-btn, .details-link {
+    position: relative;
+    font-family: var(--font-tech);
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    background: transparent;
+    overflow: hidden; /* Important for scanline */
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* HOVER STATE (Your Code Applied) */
+.stark-btn:hover, .secondary-btn:hover, .details-link:hover {
+    border-color: var(--cyan);
+    transform: translateY(-3px); /* Slightly less lift for buttons */
+    box-shadow: 0 5px 20px rgba(0, 243, 255, 0.2); /* Soft blue glow */
+    background: rgba(0, 243, 255, 0.05);
+    text-shadow: 0 0 8px var(--cyan);
+    color: #fff;
+}
+
+/* The Scanline */
+.stark-btn::before, .secondary-btn::before, .details-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(76, 201, 240, 0.5), transparent);
+    top: -100%;
+    opacity: 0;
+}
+
+.stark-btn:hover::before, .secondary-btn:hover::before, .details-link:hover::before {
+    animation: scanline 0.6s linear;
+}
+
+/* CARD UPDATE */
+.holo-card, .uplink-card {
+    position: relative;
+    background: rgba(11, 13, 23, 0.6); /* Darker base */
+    border: 1px solid var(--border);
+    padding: 25px;
+    transition: 0.4s;
+    overflow: hidden; /* For scanline */
+    text-decoration: none; /* For link cards */
+    display: block; /* Ensures footer cards behave */
+}
+
+/* HOVER STATE (Your Code) */
+.holo-card:hover, .uplink-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 243, 255, 0.1);
+    background: rgba(0, 243, 255, 0.02);
+}
+
+/* The Scanline */
+.holo-card::before, .uplink-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.3), transparent);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.holo-card:hover::before, .uplink-card:hover::before {
+    animation: scanline 1.2s linear;
+}
+
+/* Icon/Text Glow Inside Cards */
+.holo-card:hover h3, .uplink-card:hover .channel-name {
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+    transition: 0.3s;
+}
+
+.holo-card:hover .card-header, .uplink-card:hover .channel-id {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
+
+/* === 7. SCROLL INDICATOR === */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    z-index: 3;
+    color: #4cc9f0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+}
+
+.arrow-down {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #4cc9f0;
+    border-bottom: 2px solid #4cc9f0;
+    transform: rotate(45deg);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* === NAVIGATION HUD === */
+
+header {
+    position: fixed; /* Sticks to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Above everything except the loader */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    backdrop-filter: blur(10px); /* The "Frosted Glass" tech effect */
+    border-bottom: 1px solid rgba(76, 201, 240, 0.2); /* Thin cyan line */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* LOGO: "KY_PROTOCOLS" */
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    color: #4cc9f0;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(76, 201, 240, 0.5);
+    cursor: default;
+    /* Optional: Add a blinking cursor effect next to the logo */
+    position: relative;
+}
+
+.logo::after {
+    content: '_';
+    animation: blink 1s infinite;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+/* HOVER EFFECT: Glows White/Cyan */
+.nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px #4cc9f0;
+}
+
+/* ACTIVE/INDICATOR: Small dot below the link on hover */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #4cc9f0;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px #4cc9f0;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+/* BLINK ANIMATION FOR LOGO CURSOR */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    nav { padding: 15px 20px; }
+    .nav-links { display: none; } /* Hides menu on mobile for now (cleaner) */
+    .logo { font-size: 1rem; }
+}
+
+/* The Main Container for this section */
+.identity-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: center; /* Vertically center scanner with text */
+    justify-content: center;
+    flex-wrap: wrap; /* Wraps on mobile */
+    margin-top: 20px;
+}
+
+/* --- COL 1: SCANNER --- */
+.scanner-column {
+    flex: 0 0 300px; /* Fixed width for scanner */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scanner-frame {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(76, 201, 240, 0.5);
+    filter: grayscale(100%) contrast(1.1);
+    z-index: 1;
+}
+
+.scan-status {
+    margin-top: 20px;
+    font-family: var(--font-tech);
+    color: var(--cyan);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    animation: blink 2s infinite;
+}
+
+/* Rotating Rings */
+.scanner-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(76, 201, 240, 0.3);
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.1);
+}
+
+.outer {
+    width: 100%; height: 100%;
+    border-top: 2px solid var(--cyan);
+    border-bottom: 2px solid var(--cyan);
+    animation: spin 8s linear infinite;
+}
+
+.inner {
+    width: 85%; height: 85%;
+    border-left: 2px solid var(--cyan);
+    border-right: 2px solid var(--cyan);
+    animation: spin 4s linear infinite reverse;
+}
+
+/* Scanner Line */
+.scanner-line {
+    position: absolute;
+    width: 100%; height: 2px;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    z-index: 5;
+    animation: scanFace 3s ease-in-out infinite;
+}
+
+/* --- COL 2: DATA TERMINAL (BIO PANEL) --- */
+.bio-panel {
+    flex: 1; /* Takes remaining space */
+    min-width: 300px;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    background: rgba(11, 13, 23, 0.6); /* Dark panel background */
+    backdrop-filter: blur(5px);
+}
+
+/* Header Bar inside the panel */
+.bio-header {
+    background: rgba(76, 201, 240, 0.1);
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(76, 201, 240, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bio-id {
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.bio-id strong { color: var(--cyan); }
+
+.bio-badge {
+    font-size: 0.75rem;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    padding: 2px 8px;
+    letter-spacing: 1px;
+}
+
+/* Content Area */
+.bio-content {
+    padding: 30px;
+}
+
+.mission-text {
+    color: #a0a0a0;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.highlight { color: #fff; font-weight: bold; }
+
+.separator-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(76, 201, 240, 0.3), transparent);
+    margin: 20px 0;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    color: var(--cyan);
+    font-family: var(--font-tech);
+    font-size: 0.95rem;
+}
+
+.access-btn {
+    display: inline-block;
+    width: auto;
+    margin-top: 10px;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .identity-wrapper { flex-direction: column; text-align: center; }
+    .bio-header { flex-direction: column; gap: 10px; }
+    .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* === SECTOR GRID (THE NEW SCHEMATICS) === */
+
+.sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.sector-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; /* Taller to accommodate icons */
+}
+
+/* 1. Large High-Tech Icon */
+.sector-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: rgba(76, 201, 240, 0.4);
+    transition: 0.4s;
+}
+
+.sector-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 5px rgba(76, 201, 240, 0.2));
+}
+
+/* Hover Effect: Icon Glows */
+.sector-card:hover .sector-icon {
+    color: var(--cyan);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px var(--cyan));
+}
+
+/* 2. Text Content */
+.sector-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #fff;
+    font-family: var(--font-head);
+}
+
+.sector-info p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* 3. "Project Count" Badge (Bottom of Card) */
+.node-count {
+    margin-top: auto; /* Pushes to bottom before button */
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    color: #666;
+    border-top: 1px solid rgba(76, 201, 240, 0.1);
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.count-val {
+    font-size: 1.2rem;
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+/* Hover: Count glows */
+.sector-card:hover .node-count {
+    color: #fff;
+}
+
+/* === TRANSMISSIONS (LOGS) === */
+
+.transmission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Specific Style for Log Cards (Amber Theme) */
+.log-card {
+    border-color: rgba(255, 189, 46, 0.3); /* Gold Border */
+}
+
+/* Hover Effect: Gold Glow */
+.log-card:hover {
+    border-color: #ffbd2e;
+    box-shadow: 0 10px 40px rgba(255, 189, 46, 0.1);
+    background: rgba(255, 189, 46, 0.02);
+}
+
+.log-card:hover h3 {
+    color: #ffbd2e;
+    text-shadow: 0 0 10px #ffbd2e;
+}
+
+/* Scanline Effect (Override for Gold) */
+.log-card:hover::before {
+    background: linear-gradient(to bottom, transparent, rgba(255, 189, 46, 0.3), transparent);
+}
+
+/* Header Info */
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    color: #888;
+    border-bottom: 1px solid rgba(255, 189, 46, 0.2);
+    padding-bottom: 10px;
+}
+
+.log-date { color: #ffbd2e; }
+
+/* Status Text */
+.log-status {
+    font-size: 0.65rem;
+    color: #ffbd2e;
+    letter-spacing: 2px;
+    margin-top: auto; /* Push to bottom */
+    margin-bottom: 15px;
+    font-family: var(--font-tech);
+}
+
+/* Buttons (Gold Variant) */
+.log-btn {
+    color: #ffbd2e;
+    border-color: rgba(255, 189, 46, 0.3);
+}
+
+.log-btn:hover {
+    border-color: #ffbd2e;
+    box-shadow: 0 0 15px rgba(255, 189, 46, 0.2);
+    color: #fff;
+    text-shadow: 0 0 5px #ffbd2e;
+}
+
+/* Locked Card Style */
+.locked {
+    opacity: 0.6;
+    border-style: dashed;
+}
+
+.disabled {
+    cursor: not-allowed;
+    color: #555;
+    border-color: #333;
+}
+
+.disabled:hover {
+    box-shadow: none;
+    transform: none;
+    color: #555;
+    border-color: #333;
+}
+
+.blink {
+    animation: blink 2s infinite;
+}
+
+/* === MAIN PAGE: ARCHIVE CARD === */
+/* === SYNTAX SECTION (DUAL PANEL FIX) === */
+
+.syntax-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Left side slightly wider */
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* 1. Archive Card (Left) */
+.archive-card {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile, row on desktop */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    border: 1px solid rgba(255, 51, 85, 0.3); /* Default subtle red border */
+}
+
+.archive-card .archive-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: var(--crimson);
+}
+
+.archive-card h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* 2. Decryption Panel (Right - Visual Filler) */
+.decryption-panel {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px dashed rgba(255, 51, 85, 0.2);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-tech);
+    color: var(--crimson);
+    font-size: 0.7rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 51, 85, 0.2);
+    padding-bottom: 5px;
+}
+
+.code-stream {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0.7;
+}
+
+.code-stream .hindi {
+    color: var(--crimson);
+    font-weight: bold;
+}
+
+/* The Scanning Bar Animation inside the panel */
+.scan-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--crimson);
+    box-shadow: 0 0 15px var(--crimson);
+    opacity: 0.5;
+    animation: scanPanel 3s linear infinite;
+}
+
+@keyframes scanPanel {
+    0% { top: 0%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* HOVER EFFECT (Connects both panels) */
+/* ADD THIS to fix the hover logic */
+
+/* Only the Left Card (Archive) should glow red on hover */
+.archive-card:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 10px 40px rgba(255, 51, 85, 0.15);
+    background: rgba(255, 51, 85, 0.03);
+}
+
+/* The Right Panel should stay dark and static */
+.decryption-panel {
+    /* Ensure it keeps its default dark look */
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px dashed rgba(255, 51, 85, 0.2);
+    pointer-events: none; /* Makes it unclickable */
+}
+
+.syntax-wrapper:hover .code-stream {
+    color: #a0a0a0; /* Text lights up */
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 768px) {
+    .syntax-wrapper {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .decryption-panel {
+        display: none; /* Hide visualizer on mobile to save space */
+    }
+}
+
+/* === NEW PAGE: POETRY STYLING (syntax.html) === */
+
+/* Specific body style for the new page */
+.poetry-page {
+    background-color: #050505;
+    background-image: radial-gradient(circle at top, #111 0%, #000 70%);
+    min-height: 100vh;
+}
+
+.poetry-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    border-bottom: 1px solid rgba(76, 201, 240, 0.2);
+    margin-bottom: 50px;
+}
+
+.back-link {
+    color: var(--cyan);
+    text-decoration: none;
+    font-family: var(--font-tech);
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.page-header {
+    text-align: center;
+    color: #fff;
+    font-family: var(--font-head);
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.poetry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+/* The Poem Card */
+.poem-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
+    text-align: center;
+}
+
+.poem-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* HINDI TYPOGRAPHY */
+.poem-title {
+    font-family: 'Rozha One', serif; /* Elegant Hindi Font */
+    font-size: 2rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+}
+
+.poem-body {
+    font-family: 'Poppins', sans-serif; /* Clean readable font */
+    font-size: 1.1rem;
+    line-height: 2; /* Hindi needs more line height */
+    color: #d0d0d0;
+    margin-bottom: 30px;
+}
+
+.poem-footer {
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    color: #555;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+/* Mobile check */
+@media (max-width: 768px) {
+    .archive-card { flex-direction: column; text-align: center; }
+    .archive-meta { justify-content: center; }
+    .poetry-nav { padding: 20px; }
+}
+
+/* === SYNTAX ARCHIVE - SPECIAL RED HOVER === */
+
+/* 1. Define the new color for this section */
+:root {
+    --crimson: #ff3355; /* A vibrant, high-tech red */
+}
+
+/* 2. Card Hover State - Override defaults with Red */
+.archive-card:hover {
+    border-color: var(--crimson);
+    /* Red glow and tint */
+    box-shadow: 0 10px 40px rgba(255, 51, 85, 0.15);
+    background: rgba(255, 51, 85, 0.03);
+}
+
+/* 3. Icon Hover - Turns Red */
+.archive-card:hover .archive-icon {
+    color: var(--crimson);
+    /* Adds a red glow drop-shadow to the SVG */
+    filter: drop-shadow(0 0 10px var(--crimson));
+    transform: scale(1.05);
+}
+
+/* 4. Title Hover - Turns Red */
+.archive-card:hover h3 {
+    color: var(--crimson);
+    text-shadow: 0 0 10px var(--crimson);
+}
+
+/* 5. Button Hover - Red variant */
+.archive-card .access-btn:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px rgba(255, 51, 85, 0.3);
+    color: #fff;
+    /* Slight red background tint on button hover */
+    background: rgba(255, 51, 85, 0.1);
+}
+
+/* 6. Scanline - Red Laser */
+.archive-card:hover::before {
+    background: linear-gradient(to bottom, transparent, rgba(255, 51, 85, 0.4), transparent);
+}
+
+/* === COMMS SECTION (FOOTER) === */
+
+#comms {
+    background: #020202; /* Darker than the rest of the page */
+    border-top: 1px solid rgba(76, 201, 240, 0.1);
+    padding-bottom: 40px;
+}
+
+/* Status Indicator */
+.comms-status {
+    font-family: var(--font-tech);
+    color: var(--cyan);
+    font-size: 0.8rem;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.8;
+}
+
+.blink-dot {
+    width: 8px;
+    height: 8px;
+    background: #0f0; /* Green for "Open" */
+    border-radius: 50%;
+    box-shadow: 0 0 5px #0f0;
+    animation: blink 1.5s infinite;
+}
+
+/* Grid Layout */
+.uplink-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* The Uplink Card */
+.uplink-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    background: rgba(76, 201, 240, 0.02);
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.uplink-card .icon-box {
+    width: 40px;
+    height: 40px;
+    color: #555;
+    transition: 0.3s;
+}
+
+.uplink-card .channel-id {
+    font-family: var(--font-tech);
+    font-size: 0.65rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.uplink-card h3 {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* Hover Effects */
+.uplink-card:hover {
+    border-color: var(--cyan);
+    background: rgba(76, 201, 240, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.1);
+}
+
+.uplink-card:hover .icon-box {
+    color: var(--cyan);
+    filter: drop-shadow(0 0 5px var(--cyan));
+}
+
+.uplink-card:hover .channel-id {
+    color: var(--cyan);
+}
+
+/* System Footer Text */
+.system-footer {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+}
+
+.system-footer p {
+    color: #444;
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.tiny-text { font-size: 0.6rem !important; opacity: 0.5; }
+
+/* === FREELANCE BADGE === */
+
+.freelance-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.6rem;
+    font-family: var(--font-tech);
+    color: #0f0; /* Terminal Green */
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    background: rgba(0, 255, 0, 0.05);
+    border-radius: 2px;
+}
+
+/* Hover Effect: Badge Glows */
+.uplink-card:hover .freelance-tag {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    border-color: #0f0;
+}
+
+/* === AUDIO HUD CONTROLLER === */
+
+.audio-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000; /* Above everything */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(76, 201, 240, 0.3);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+/* Hover State */
+.audio-control:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+}
+
+.audio-icon svg {
+    width: 18px;
+    height: 18px;
+    color: #666;
+    transition: 0.3s;
+}
+
+.audio-text {
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    color: #666;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    width: 100px; /* Fixed width to prevent jumping when text changes */
+}
+
+/* VISUALIZER BARS */
+.visualizer {
+    display: flex;
+    gap: 3px;
+    height: 15px;
+    align-items: flex-end;
+}
+
+.visualizer span {
+    width: 3px;
+    height: 3px; /* Default flat line */
+    background-color: #444;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* === ACTIVE STATE (CLASS ADDED BY JS) === */
+.audio-active {
+    border-color: var(--cyan);
+    background: rgba(76, 201, 240, 0.1);
+}
+
+.audio-active .audio-text {
+    color: var(--cyan);
+    text-shadow: 0 0 5px var(--cyan);
+}
+
+.audio-active .audio-icon svg {
+    color: var(--cyan);
+}
+
+.audio-active .visualizer span {
+    background-color: var(--cyan);
+    animation: bounceBar 0.6s infinite ease-in-out alternate;
+}
+
+/* Stagger the bars */
+.audio-active .visualizer span:nth-child(1) { animation-delay: 0s; }
+.audio-active .visualizer span:nth-child(2) { animation-delay: 0.1s; }
+.audio-active .visualizer span:nth-child(3) { animation-delay: 0.2s; }
+.audio-active .visualizer span:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes bounceBar {
+    0% { height: 3px; }
+    100% { height: 15px; }
+}
+
+/* === SYNTAX ARCHIVE PAGE (syntax.html) === */
+
+/* 1. Page Background (Darker, specialized gradient) */
+.poetry-body {
+    background-color: #050505;
+    background-image: radial-gradient(circle at 50% 10%, #1a0505 0%, #000 70%); /* Subtle Red Tint */
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+/* 2. Navigation */
+.poetry-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    border-bottom: 1px solid rgba(255, 51, 85, 0.2);
+}
+
+.back-link {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.2rem;
+    color: var(--crimson);
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.back-link:hover {
+    text-shadow: 0 0 10px var(--crimson);
+    transform: translateX(-5px);
+}
+
+.nav-id {
+    font-family: var(--font-tech);
+    color: #555;
+    font-size: 0.8rem;
+}
+
+/* 3. Header Area */
+.archive-header {
+    text-align: center;
+    margin: 60px 0;
+    position: relative;
+}
+
+.archive-header h1 {
+    font-family: 'Teko', sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.hindi-accent {
+    font-family: 'Rozha One', serif;
+    color: var(--crimson);
+}
+
+.subtitle {
+    font-family: var(--font-tech);
+    color: #888;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* 4. The Poem Cards */
+.poetry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding-bottom: 80px;
+}
+
+.poem-card {
+    background: rgba(20, 5, 5, 0.4); /* Very dark red tint */
+    border: 1px solid rgba(255, 51, 85, 0.15);
+    padding: 40px;
+    text-align: center;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+.poem-card:hover {
+    border-color: var(--crimson);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(255, 51, 85, 0.1);
+    background: rgba(255, 51, 85, 0.05);
+}
+
+/* Typography */
+.card-meta {
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    color: #555;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.poem-title {
+    font-family: 'Rozha One', serif;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 25px;
+    /* Elegant underline */
+    background-image: linear-gradient(to right, transparent, var(--crimson), transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    padding-bottom: 10px;
+}
+
+.poem-content p {
+    font-family: 'Rozha One', serif; /* Or 'Poppins' if you prefer simpler reading */
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin: 5px 0;
+}
+
+.card-footer {
+    margin-top: 30px;
+    font-family: var(--font-tech);
+    font-size: 0.6rem;
+    color: var(--crimson);
+    opacity: 0.7;
+}
+
+/* === POETRY PREVIEW CARDS === */
+/* === POETRY PREVIEW CARDS (Alive Version) === */
+
+/* Define the "breathing" animation */
+@keyframes dormantPulse {
+    0%, 100% {
+        border-color: rgba(255, 51, 85, 0.2);
+        box-shadow: 0 0 10px rgba(255, 51, 85, 0.05) inset;
+    }
+    50% {
+        border-color: rgba(255, 51, 85, 0.5);
+        box-shadow: 0 0 25px rgba(255, 51, 85, 0.15) inset;
+    }
+}
+
+.poem-card {
+    /* New Background: A subtle inner glow gradient instead of flat dark */
+    background: radial-gradient(circle at center, rgba(255, 51, 85, 0.08) 0%, rgba(10, 5, 5, 0.9) 80%);
+    border: 1px solid rgba(255, 51, 85, 0.2);
+    padding: 35px 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    
+    /* Apply the breathing animation */
+    animation: dormantPulse 4s ease-in-out infinite;
+}
+
+/* Subtle scanline texture over the card to keep the tech feel */
+.poem-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        transparent 0px,
+        transparent 2px,
+        rgba(255, 51, 85, 0.03) 3px
+    );
+    pointer-events: none;
+}
+
+/* HOVER STATE: High Energy, stops breathing */
+.poem-card:hover {
+    animation: none; /* Stop pulse, lock energy high */
+    border-color: var(--crimson);
+    background: radial-gradient(circle at center, rgba(255, 51, 85, 0.15) 0%, rgba(20, 5, 5, 0.95) 80%);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 15px 40px rgba(255, 51, 85, 0.3),
+        0 0 20px rgba(255, 51, 85, 0.2) inset; /* Outer + Inner glow */
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+    color: #777; /* Slightly brighter default */
+    margin-bottom: 20px;
+    transition: 0.4s;
+    filter: drop-shadow(0 0 5px rgba(255, 51, 85, 0.2)); /* Subtle glow */
+}
+
+.poem-card:hover .card-icon {
+    color: var(--crimson);
+    transform: scale(1.15) rotate(-5deg); /* Slight dynamic tilt */
+    filter: drop-shadow(0 0 15px var(--crimson));
+}
+
+.card-meta {
+    font-family: var(--font-tech);
+    font-size: 0.65rem;
+    color: rgba(255, 51, 85, 0.7); /* Red tint default */
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+/* Update: Use the artistic Hindi font for titles, even English ones */
+.poem-title-preview {
+    font-family: 'Rozha One', serif; /* The artsy font */
+    font-size: 2rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.poem-card:hover .poem-title-preview {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 51, 85, 0.5);
+}
+
+.read-btn {
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    color: #aaa;
+    border: 1px solid rgba(255, 51, 85, 0.2);
+    padding: 10px 20px;
+    margin-top: auto;
+    transition: 0.3s;
+    background: rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+}
+
+.poem-card:hover .read-btn {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: #fff;
+    box-shadow: 0 0 20px var(--crimson);
+    letter-spacing: 2px; /* Expands on hover */
+}
+
+/* === THE MODAL (POPUP) === */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Dark background behind popup */
+    backdrop-filter: blur(5px);
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Update this existing class */
+/* === FORCE OVERRIDE: MODAL STYLE === */
+/* === FINAL FIX: VISIBLE PATTERN === */
+.modal-content {
+    background-color: #020202; /* Deep black base */
+
+    /* DIAMOND MESH PATTERN */
+    background-image: 
+        repeating-linear-gradient(45deg, rgba(255, 51, 85, 0.15) 0px, rgba(255, 51, 85, 0.15) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(-45deg, rgba(255, 51, 85, 0.15) 0px, rgba(255, 51, 85, 0.15) 1px, transparent 1px, transparent 20px);
+    
+    background-size: 100% 100%;
+
+    /* BORDER & GLOW */
+    border: 1px solid var(--crimson);
+    box-shadow: 
+        0 0 50px rgba(255, 51, 85, 0.2), /* Outer Glow */
+        inset 0 0 50px rgba(255, 51, 85, 0.1); /* Inner Glow */
+    
+    /* SIZE & POSITION */
+    width: 90%;
+    max-width: 600px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.9);
+    transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Ensure pop-in animation still works */
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+/* Modal Typography */
+.close-btn {
+    position: absolute;
+    top: 20px; right: 25px;
+    font-size: 2rem;
+    color: #555;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover { color: var(--crimson); }
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-tech);
+    color: var(--crimson);
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 51, 85, 0.2);
+    padding-bottom: 10px;
+}
+
+#modal-title {
+    font-family: 'Rozha One', serif;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.modal-body {
+    font-family: 'Rozha One', serif;
+    font-size: 1.4rem;
+    color: #ddd;
+    line-height: 2;
+}
+
+.modal-footer {
+    margin-top: 40px;
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 3px;
+}
+
+/* === TRANSLATE BUTTON === */
+.translate-toggle {
+    background: transparent;
+    border: 1px solid #555;
+    color: #888;
+    padding: 10px 20px;
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.translate-toggle .icon {
+    font-size: 1.2rem;
+}
+
+.translate-toggle:hover {
+    border-color: var(--crimson);
+    color: var(--crimson);
+    box-shadow: 0 0 10px rgba(255, 51, 85, 0.2);
+}
+
+/* Add a fade transition to the text for smooth swapping */
+#modal-text {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* === FORCE FIX: SYNTAX BUTTON RED THEME === */
+
+/* 1. Default State: Red Border & Text (Make it look different immediately) */
+#syntax .access-btn {
+    border-color: rgba(255, 51, 85, 0.5) !important;
+    color: #ff3355 !important; /* Hardcoded Red to be safe */
+    box-shadow: 0 0 10px rgba(255, 51, 85, 0.1);
+}
+
+/* 2. Hover State: Intense Red Glow */
+#syntax .access-btn:hover {
+    background: #ff3355 !important;
+    color: #ffffff !important;
+    border-color: #ff3355 !important;
+    box-shadow: 0 0 25px rgba(255, 51, 85, 0.6) !important;
+    text-shadow: 0 0 5px #fff;
+}
+
+/* --- ENHANCED LOG CARDS --- */
+
+.log-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.log-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00e5ff, transparent);
+    transition: 0.5s;
+}
+
+.log-card:hover::before {
+    left: 100%;
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.log-status {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.log-status.blink {
+    animation: alert-blink 1.5s infinite;
+}
+
+@keyframes alert-blink {
+    0%, 100% { color: #ff3e3e; opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* --- RESPONSIVE_OVERRIDE_INITIATED --- */
+
+@media (max-width: 768px) {
+    /* 1. Hero Text Adjustment */
+    h1.glitch-text {
+        font-size: 2.5rem; /* Downscale for mobile */
+    }
+
+    .typing-text {
+        font-size: 1rem;
+    }
+
+    /* 2. Identity Section Stacking */
+    .identity-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio-panel {
+        padding-left: 0;
+        margin-top: 2rem;
+    }
+
+    /* 3. Grid Re-alignment */
+    .sector-grid, 
+    .transmission-grid, 
+    .uplink-grid,
+    .stats-grid {
+        grid-template-columns: 1fr !important; /* Force single column */
+        gap: 1.5rem;
+    }
+
+    /* 4. Navigation Refinement */
+    .nav-links {
+        display: none; /* Recommended: Hide for a burger menu or stack */
+    }
+
+    /* 5. Audio Control Mobile Position */
+    .audio-control {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px;
+    }
+    
+    .audio-text {
+        display: none; /* Hide text on mobile to save space */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide the standard nav and style the toggle */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #00e5ff; /* Stark Cyan */
+        transition: 0.3s ease-in-out;
+    }
+
+    /* Mobile Nav Overlay */
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.95);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 229, 255, 0.1);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 2.5rem 0;
+    }
+
+    /* Toggle Animation to "X" */
+    #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}

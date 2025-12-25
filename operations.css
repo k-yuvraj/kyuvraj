@@ -1,0 +1,158 @@
+/* OPERATIONS SECTOR - STRATEGIC COMMAND THEME */
+:root {
+    --cmd-bg: #050a0f; /* Deeper, more professional navy/black */
+    --cmd-accent: #00e5ff; /* Crisp Cyan */
+    --cmd-secondary: #78909c; /* Steel gray for business data */
+    --cmd-glass: rgba(15, 25, 35, 0.85);
+    --cmd-border: rgba(0, 229, 255, 0.2);
+}
+
+.blueprint-theme {
+    background-color: var(--cmd-bg);
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(0, 229, 255, 0.05) 1px, transparent 0);
+    background-size: 40px 40px; /* Subtle data grid */
+    color: #e0f2f1;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Redefining the Header for Business */
+.schem-header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 8px;
+    background: linear-gradient(180deg, #fff, var(--cmd-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+/* Strategic Data Cards */
+.tech-card {
+    background: var(--cmd-glass);
+    border: 1px solid var(--cmd-border);
+    backdrop-filter: blur(10px);
+    border-radius: 4px; /* Sharper, more corporate edges */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.tech-card:hover {
+    border-color: var(--cmd-accent);
+    background: rgba(0, 229, 255, 0.05);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+}
+
+/* Business-specific iconography/tags */
+.tech-specs span {
+    background: rgba(120, 144, 156, 0.15); /* Steel gray tags */
+    color: var(--cmd-secondary);
+    border: 1px solid rgba(120, 144, 156, 0.3);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    padding: 2px 10px;
+}
+
+/* The "View Intel" Button */
+.schem-btn {
+    border: 1px solid var(--cmd-accent);
+    color: var(--cmd-accent);
+    background: transparent;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.schem-btn:hover {
+    background: var(--cmd-accent);
+    color: var(--cmd-bg);
+}
+
+/* Scanning line refined for "Processing Data" */
+.scan-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cmd-accent), transparent);
+    opacity: 0.5;
+}
+/* --- EXECUTIVE REFINEMENT: OPERATIONS V2 --- */
+
+/* Data Panels (The Glass Look) */
+.report-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 229, 255, 0.08);
+    border-radius: 4px;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: border 0.3s ease;
+}
+
+.report-box:hover {
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+/* Slimline Roadmap */
+.roadmap-container {
+    background: transparent;
+    border: none;
+    padding: 0 0 3rem 0;
+}
+
+.roadmap-header {
+    display: grid;
+    grid-template-columns: 220px repeat(4, 1fr);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    padding-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(0, 229, 255, 0.6);
+    font-size: 0.75rem;
+}
+
+.roadmap-row {
+    display: grid;
+    grid-template-columns: 220px repeat(4, 1fr);
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+}
+
+/* Thin, High-Precision Bars */
+.roadmap-bar-wrapper {
+    grid-column: 2 / span 4;
+    height: 4px; /* Thinner for more class */
+    background: rgba(255, 255, 255, 0.03);
+    align-self: center;
+    position: relative;
+}
+
+.roadmap-bar {
+    height: 100%;
+    background: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+    border-radius: 2px;
+}
+
+/* Refined Milestone Markers */
+.milestone-marker {
+    top: -30px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    border-left: 1px solid #00e5ff;
+    padding-left: 8px;
+}
+
+/* Typography Polish */
+.report-header h1 {
+    font-weight: 400;
+    letter-spacing: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.data-grid {
+    display: flex;
+    flex-direction: column; /* Stacked panels look more professional for long text */
+    gap: 1rem;
+    margin-top: 2rem;
+}

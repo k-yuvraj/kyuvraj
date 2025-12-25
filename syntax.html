@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvraj | Encrypted Archives</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Teko:wght@300;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        /* === INTERNAL STYLES TO FORCE UPDATES === */
+
+        /* 1. FORCE AUDIO BUTTON RED */
+        .audio-control:hover { border-color: #ff3355 !important; box-shadow: 0 0 15px rgba(255, 51, 85, 0.4) !important; }
+        .audio-active { border-color: #ff3355 !important; background: rgba(255, 51, 85, 0.1) !important; }
+        .audio-active .audio-text { color: #ff3355 !important; text-shadow: 0 0 5px #ff3355; }
+        .audio-active .audio-icon svg { color: #ff3355 !important; filter: drop-shadow(0 0 5px #ff3355); }
+        .audio-active .visualizer span { background-color: #ff3355 !important; box-shadow: 0 0 5px #ff3355; }
+
+        /* 2. FLEXBOX MODAL FIX (Layout Structure) */
+        .modal-content {
+            display: flex !important;
+            flex-direction: column !important;
+            max-height: 85vh !important; /* Cap height at 85% of screen */
+            width: 90%;
+            max-width: 600px;
+            padding: 25px !important; /* Reduced padding to give more room */
+        }
+
+        /* 3. COMPACT HEADER (Give text more space) */
+        .modal-header {
+            flex-shrink: 0 !important;
+            margin-bottom: 10px !important;
+            padding-bottom: 5px !important;
+        }
+        #modal-title {
+            font-size: 2rem !important; /* Smaller title */
+            margin-bottom: 10px !important;
+            margin-top: 10px !important;
+        }
+
+        /* 4. SCROLLABLE BODY (The Poem) */
+        .modal-body {
+            flex: 1 1 auto !important;   /* Grow to fill space */
+            min-height: 0 !important;    /* CRITICAL for scrolling to work */
+            overflow-y: auto !important; /* Enable scroll */
+            
+            /* Typography */
+            font-family: 'Rozha One', serif;
+            font-size: 1.2rem; /* Slightly smaller for better reading */
+            color: #ddd;
+            line-height: 1.6;  /* Tighter line height */
+            padding: 10px 5px; /* Internal breathing room */
+            border-top: 1px dashed rgba(255, 51, 85, 0.2);
+            border-bottom: 1px dashed rgba(255, 51, 85, 0.2);
+            margin-bottom: 10px;
+        }
+
+        /* 5. CUSTOM RED SCROLLBAR */
+        .modal-body::-webkit-scrollbar { width: 4px; }
+        .modal-body::-webkit-scrollbar-track { background: rgba(255, 51, 85, 0.05); }
+        .modal-body::-webkit-scrollbar-thumb { background: #ff3355; border-radius: 4px; }
+
+        /* 6. COMPACT FOOTER (Button) */
+        .modal-footer {
+            flex-shrink: 0 !important;
+            margin-top: 0 !important;
+            padding-top: 5px !important;
+            display: flex;
+            justify-content: center;
+        }
+        .translate-toggle {
+            background: transparent;
+            border: 1px solid #777;
+            color: #aaa;
+            padding: 8px 20px; /* Smaller button padding */
+            font-family: 'Teko', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+        .translate-toggle:hover {
+            border-color: #ff3355;
+            color: #ff3355;
+            box-shadow: 0 0 15px rgba(255, 51, 85, 0.3);
+            background: rgba(255, 51, 85, 0.05);
+        }
+    </style>
+</head>
+<body class="poetry-body">
+
+    <nav class="poetry-nav">
+        <a href="index.html" class="back-link">
+            <span class="arrow"><</span> RETURN_TO_MAIN_SYSTEM
+        </a>
+        <div class="nav-id">ARCHIVE_ID: 0x99_HINDI</div>
+    </nav>
+
+    <div class="container">
+        <header class="archive-header">
+            <div class="header-decoration"></div>
+            <h1>DECRYPTED_FILES // <span class="hindi-accent">Kavi Kalam</span></h1>
+            <p class="subtitle">"Logic Makan Banaye. Emotion Ghar Basaye."</p>
+        </header>
+
+        <div class="poetry-grid">
+            
+            <div class="poem-card" 
+                 data-title="Maan Ke Khayal(Thoughts of my heart)" 
+                 data-year="2024" 
+                 data-content="Ghar walo se door hogaya hun<br>
+                                Dosto se door ho raha hun<br>
+                                Kamyabi ke paas ja nahi raha hun<br>
+                                Na jane kaha pahuch raha hun<br><br>
+
+                                Sochta hun thoda kaam kar lu<br>
+                                Jaldi se kuch nipta lu<br>
+                                Bhaut kaam pada hai wasi<br>
+                                Par aajate ho tum khayalo meh na jane kaise<br><br>
+
+                                Dost puuchte hai kaha khoya rahata hai<br>
+                                Kyu nahi milta hai<br>
+                                Abb kya hum bataye inhe<br> 
+                                Hum ne kahi aur sansar basa rakha hai<br><br>
+
+                                Zindigi ka yeh safar jeeta chala ja raha hun<br>
+                                Dar badar bhatakta raheta hun<br>
+                                Sochta hun kisi mod par tumse mulakat hogi<br>
+                                Na jane phir kab humari baat hongi<br><br>
+
+                                Par abb aur saha nahi jata<br>
+                                Abb aur raha nahi jata<br>
+                                Mai kaise bhulau humari woh yaade<br>
+                                Pata nahi kahi kho se gaye hai woh waade<br><br>
+
+                                Abb umeed bhi na raha<br>
+                                Dil meh sirf tanhahi rahi<br>
+                                Tum aage baad gaye<br>
+                                Humari kahani wahi ruki rahi<br><br>
+
+                                Abb chatha hun ki mai bhi aage baadu<br>
+                                Kayamb itna banu<br>
+                                Safalta ki har shikar chu lu<br>
+                                Phir bhi mai chaata ki tumhare khayalo meh khoya rahu"
+                 data-translation="I've distanced myself from my family<br>
+                                    I'm moving away from my friends<br>
+                                    I'm not getting close to success<br>
+                                    I don't know where I'm headed<br><br>
+
+                                    I think I'll get some work done<br>
+                                    I'll finish something quickly<br>
+                                    I have a lot of work to do, Vasi<br>
+                                    But you keep coming to my thoughts, I don't know how<br><br>
+
+                                    Friends ask, where do you keep getting lost?<br>
+                                    Why can't we find you?<br>
+                                    What should I tell them now?<br>
+                                    I've settled somewhere else in the world<br><br>
+
+                                    I'm continuing this journey of life, winning<br>
+                                    I keep wandering from place to place<br>
+                                    I think I'll meet you at some point<br>
+                                    I don't know when we'll talk again<br><br>
+
+                                    But now I can't bear it anymore<br>
+                                    Now I can't bear it anymore<br>
+                                    How can I forget those memories of mine?<br>
+                                    I don't know where those promises have gone<br><br>
+
+                                    Now there's no hope left<br>
+                                    Only loneliness remains in my heart<br>
+                                    You moved on<br>
+                                    Our story remains the same<br>
+
+                                    Now I want you to move on too<br>
+                                    Become so successful that<br>
+                                    I can capture every prey of success<br>
+                                    Yet I want to remain lost in your thoughts<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_01 // SECURE</div>
+                <h2 class="poem-title-preview">Maan Ke Khayal</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+
+            <div class="poem-card" 
+                 data-title="Aaj phir teri yaad aayi hai(I remembered you again today)" 
+                 data-year="2025" 
+                 data-content="Aaj phir teri yaad aayi hai<br>
+                                Humari unn dino ki baat dorahi hai<br>
+                                Jab hum kareeb hua karte te<br>
+                                Tab hum dost hua karte te<br><br>
+
+                                Ekdusre se kuch bhi kah jate<br>
+                                Dil ki har baat bina sooche bol jate<br>
+                                Kuch baate aysi kahi jine hum bhula na sake<br>
+                                Apni woh yaari hum nibha na sake<br><br>
+
+                                Aaj phir teri yaad aayi hai<br>
+                                Humari unn dino ki baat dorahi hai<br>
+                                Jab hum kareeb hua karte te<br>
+                                Tab hum dost hua karte te<br><br>
+
+                                Sochta hunn ki kya hota<br>
+                                Agar mai tumse apni woh dil ki baat na kaheta<br>
+                                Shayad aaj bhi dost hote hum<br>
+                                Yu ayse dur na hote hum<br><br>
+
+                                Aaj phir teri yaad aayi hai<br>
+                                Humari unn dino ki baat dorahi hai<br>
+                                Jab hum kareeb hua karte te<br>
+                                Tab hum dost hua karte te<br><br>
+
+                                Aaj phir tere dar par aaya tha<br> 
+                                Kuch aarman saja kar liya tha<br>
+                                Par thoda himat kaam pad gaya<br>
+                                Dil mera wahi saahim gaya<br><br>
+
+                                Abb afsos hota hai mujhe<br>
+                                Kaash dil ki woh baat na kahta mai tujhe<br>
+                                Par abb yeh hi hakikat hai<br>
+                                Jaane kyu mujhe itni dikkat hai<br><br>
+
+                                Aaj phir teri yaad aayi hai<br>
+                                Humari unn dino ki baat dorahi hai<br>
+                                Jab hum kareeb hua karte te<br>
+                                Tab hum dost hua karte te<br><br>"
+                 data-translation="Today I remember you again<br>
+                                    Things of those days are haunting us<br>
+                                    When we were close,<br>
+                                    When we were friends.<br><br>
+
+                                    We could say anything to each other<br>
+                                    We would speak our hearts out without thinking<br>
+                                    Some things were said that we can't forget<br>
+                                    We couldn't maintain our friendship<br><br>
+
+                                    Today I remember you again<br>
+                                    Things of those days are haunting us<br>
+                                    When we were close,<br>
+                                    When we were friends.<br><br>
+
+                                    I wonder what would have happened<br>
+                                    If I hadn't told you what was in my heart<br>
+                                    Maybe we would still be friends<br>
+                                    We wouldn't be so far apart.<br><br>
+
+                                    Today I remember you again<br>
+                                    Those days of ours are haunting<br>
+                                    When we used to be close<br>
+                                    We used to be friends.<br><br>
+
+                                    Today I came to your door again<br>
+                                    I had made some wishes<br>
+                                    But my courage waned<br>
+                                    My heart gave up.<br><br>
+
+                                    Now I regret<br>
+                                    I wish I hadn't told you what my heart was saying<br>
+                                    But now this is the truth<br>
+                                    I don't know why it bothers me so much.<br><br>
+
+                                    Today I remember you again<br>
+                                    Those days of ours are haunting<br>
+                                    When we used to be close.<br>
+                                    Then we became friends.<br><br>">
+                
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_02 // SECURE</div>
+                <h2 class="poem-title-preview">Aaj phir teri yaad aayi hai</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+
+            <div class="poem-card" 
+                 data-title="Duniya ke yeh kis daod meh bagh rahe hai hum(In which race of this world are we running?)" 
+                 data-year="2025" 
+                 data-content="Duniya ke yeh kis daod meh bagh rahe hai hum<br>
+                                Paiso ka yeh kya malham maang rahe hai hum<br>
+                                Dil pe toh zhakm kiya unnki baato ne hai<br>
+                                Jiske nishan aaj bhi humre aanko meh hai<br><br>
+
+                                Ayse kaii subha thi jo hum tuj se shru karte<br>
+                                Leki aaj har din hum tumhare yaado se chalate<br>
+                                Aksar phone par humari hoti thi baate<br>
+                                Har din school meh hoti pyari mulakate<br><br>
+
+                                Bachpan ke uss daur meh kiye humne kuch waade<br>
+                                Tera saath nahi chodenge kiye pakke irade<br>
+                                Jindigi ka pahaiya kuch aysa chala<br>
+                                Aaj jane kitne baato ka hai gila<br><br>
+
+                                Haq hai tum par yeh hum jata na pate<br>
+                                Ek dusre se pyar hum dika nahi pate<br>
+                                Shayad kah gaye sahi kahne wale<br>
+                                Milte nahi hai phir bichadne wale<br><br>
+
+                                Jeevan ke inn raasto meh ulajhte ja rahe hai<br>
+                                Kya khoya aur kya paya samaj nahi pa rahe hai<br>
+                                Inn raasto meh doodhte doodhte ayse kho gaye hum<br>
+                                Ek duse se takrana bhool se gaye hum<br><br>
+
+                                Duniya ke yeh kis daod meh bagh rahe hai hum<br>
+                                Rishto par kaisa zulm dhaa rahe hai hum<br>
+                                Tabhai ki taraf yuu tezee se bhag rahe hai<br>
+                                Jane q gaur nahi farma rahe hai<br><br>
+
+                                Duniya ke yeh kis daod meh bagh rahe hai hum.....<br><br>"
+                 data-translation="What kind of world are we chasing?<br>
+                                    What kind of money are we seeking?<br>
+                                    Their words have hurt my heart,<br>
+                                    The marks of which are still in my eyes.<br><br>
+
+                                    There were many mornings like this that I would start with you.<br>
+                                    But today, every day I leave with your memories.<br>
+                                    We often talked on the phone.<br>
+
+                                    Every day we would meet sweetly at school.<br>
+                                    During that childhood, we made some promises.<br>
+                                    We made firm resolutions that we would never leave you.<br>
+                                    The wheel of life moved like this.<br>
+                                    Who knows how many things I am sad about today.<br><br>
+
+                                    This is your right. We may not know how to love each other.<br>
+                                    We may have said the right thing, but we cannot find the one who will tear us apart.<br>
+                                    We are getting confused in these paths of life.<br>
+                                    We cannot understand what we have lost and what we have gained.<br>
+                                    We have lost ourselves in these paths.<br>
+                                    We have forgotten how to confront each other.<br><br>
+
+                                    In what race of this world are we running?<br>
+                                    What cruelty are we inflicting on relationships?<br>
+                                    We are running so fast towards the end.<br>
+                                    We are not paying attention to the truth.<br><br>
+
+                                    In what race of this world are we running? We are running in the race...<br><br>">
+                
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_03 // SECURE</div>
+                <h2 class="poem-title-preview">Duniya ke yeh kis daod meh bagh rahe hai hum</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+
+            <div class="poem-card" 
+                 data-title="Papa (Dad)" 
+                 data-year="2025" 
+                 data-content="Aaj jane kyu maan udas hai<br>
+                                Pita ke sahare ki aas hai<br>
+                                Aaj jane kyu lag raha hai akela hun mai<br>
+                                Duniya ki iss beed meh bhatak raha hun mai<br><br>
+
+                                Kitna pyare hote the bachpan ke woh din<br>
+                                Aaj guzarta nahi chinta ke bina ek din<br>
+                                Chote chote baato se khush hojate<br>
+                                Maa ke godh meh saar rakh kar so jate<br><br>
+
+                                Ungli pakadkar papa duniya ghumate<br>
+                                Khulke zindigi jiyo yeh sikhlate<br>
+                                Maa daoodh daoodh kar khana khilati<br>
+                                Neend na aaye toh pyari si lori sunati<br><br>
+
+                                Mann ko jo chaha maang jate<br>
+                                Aur na mile toh jat se rooth jate<br>
+                                Din bhar khel khood meh bitate<br>
+                                Papa ki daat se ghabraate<br><br>
+
+                                Tab papa ki daat kharab lagti<br>
+                                Aaj wahi baate aankho meh aansu laya karti<br>
+                                Abb aysa lagta hai koi sahara choot gaya hai<br>
+                                Jeevan ke iss samandar meh koi kinara doob gaya hai<br><br>"
+                 data-translation="I don't know why I'm sad today<br>
+                                    I hope for my father's support<br>
+                                    I don't know why I feel alone today<br>
+                                    I'm wandering in this seed of the world.<br><br>
+
+                                    How lovely those childhood days were<br>
+                                    Not a single day passes without worry today<br>
+                                    We would be delighted by small things<br>
+                                    We would fall asleep with our mother's lap<br><br>
+
+                                    Father would take us around the world holding our finger<br>
+                                    We learned to live life freely.<br>
+                                    Mother would feed us milk and food<br>
+                                    If we couldn't sleep, she would sing us a sweet lullaby.<br><br>
+
+                                    We would ask for whatever our heart desired<br>
+                                    And if we didn't get it, we would become rooted to the ground<br>
+                                    All day long I would spend my time playing games, getting scared of my father's wrath.<br><br>
+
+                                    Then my father's teeth seemed bad.<br>
+                                    Today, those same things bring tears to my eyes.<br>
+                                    Now, it feels like I've lost some support.<br>
+                                    In this ocean of life, some shore has sunk.<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_04 // SECURE</div>
+                <h2 class="poem-title-preview">Papa</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Duniya meh yeh jeevan (Life in this world)" 
+                 data-year="2025" 
+                 data-content="Duniya ke inn ujaalon meh bhi andhero meh kho raha hun<br>
+                                Dimag ke sawalon meh dil ka jawab dhoond raha hun<br>
+                                Safar zindgi ka uhi kaate ja raha hun<br>
+                                Manzil ke khoj meh zinda laash bane ja raha hun<br><br>
+
+                                Duniya ki iss bheed meh lagta hai akela hun<br>
+                                Tanhaai bhari zindigi jee raha hun<br>
+                                Aasa toh nahi ki koi khushi nahi iss jeevan meh<br>
+                                Par afsoos iss baat ka ki koi saath nahi humare gum meh<br><br>
+
+                                Duniya meh lamhe kai bitaye humne kuch khushi meh aur kuch gum meh<br>
+                                Khushi meh toh saath nibhaya sab ne par gum meh sambhala tha sirf yaaro ne<br>
+                                Par abb sab zindgi ki dood meh yuu lag gaye<br>
+                                Hum ek dusre se baat karne ko taras gaye<br><br>
+
+                                Duniya ki inn karvato meh unn ulaj gaye<br>
+                                Ghar aur khud ki zimadari nibhane lage<br>
+                                Tanaav ke daldal meh unn hi dhaste rahe hum<br>
+                                Phir bhi hooto par muskurahat banaye rakhte hum<br><br>"
+                 data-translation="Even in this world's light, I'm searching for the darkness<br>
+                                    I'm searching for the heart's answers in my mind's questions<br>
+                                    I'm continuing to cut the journey of life short<br>
+                                    I'm becoming a living corpse in search of my destination.<br><br>
+
+                                    In this crowd of the world, I feel alone<br>
+                                    I'm living a lonely life<br>
+                                    I don't hope there's no happiness in this life<br>
+                                    But I regret that no one is with me in my sorrow<br><br>
+
+                                    I spent many moments in this world, some in happiness and some in sorrow<br>
+                                    Everyone supported me in happiness, but I only held me in sorrow. Friends,<br>
+                                    But now we've all become lost in the sludge of life.<br>
+                                    We've longed to talk to each other.<br><br>
+
+                                    They've become entangled in the world's twists and turns.<br>
+                                    They've started fulfilling their responsibilities to home and themselves.<br>
+                                    We've been sinking into the quagmire of stress.<br>
+                                    Yet we've kept a smile on our lips.<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_05 // SECURE</div>
+                <h2 class="poem-title-preview">Duniya meh yeh jeevan</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Rishta (Relations)" 
+                 data-year="2025" 
+                 data-content="Rishte kai bikte hongey inn baazaro meh<br>
+                                Ek dil bhi yaha batha hoga hazaro meh<br>
+                                Par mera yeh dil uss kisi ek ko dhoondta<br>
+                                Jise dekh woh pahunch jata baharo meh<br><br>
+
+                                Har koi dil ka khel dimag se khelti<br>
+                                Par ussne humari chaahat bhi na dekhi<br>
+                                Ishq pyaar mohabat humne dil se ki<br>
+                                Aur aaj kal breakup culture trend kar gayi<br><br>
+
+                                Hazaro meh bikte hue rishto ko dekh dil mera tham gaya<br>
+                                Samaj ke iss badlav se dil mera sahim gaya<br>
+                                Aur ussne jo thukraya iss dil ko<br>
+                                Toot kar woh pathar sa jam gaya<br><br>"
+                 data-translation="Many relationships must be sold in these markets<br>
+                                    A single heart must be bathed here among thousands<br>
+                                    But this heart of mine searches for that one<br>
+                                    Whoever sees it reaches the shore<br><br>
+
+                                    Everyone plays the game of the heart with the mind<br>
+                                    But he didn't even see my desire<br>
+                                    We loved love with all our heart<br>
+                                    And today, breakup culture has become a trend<br><br>
+
+                                    Seeing relationships being sold in thousands, my heart became tired<br>
+                                    My heart was able to bear this change in society<br>
+                                    And when he rejected this heart,<br>
+                                    It broke and froze like a stone.<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_06 // SECURE</div>
+                <h2 class="poem-title-preview">Rishta</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Yeh duniya (This World)" 
+                 data-year="2025" 
+                 data-content="Yeh duniya jane kaisa mela hai<br>
+                                Yaha har insaan kheel raha apna hi khela hai<br>
+                                Pal pal koi kahi haarta aur kahi jeethta<br>
+                                Har baar insaan apne nernay par kisi aur ko kosta hai<br><br>
+
+                                Doodh raha hai zamana na jane kis manzil ke talash meh<br>
+                                Hai har ghere samandar meh hai kinare ki talaash meh<br>
+                                Aur sabhi ko khazano se jane kaisi preet hai<br>
+                                Jane yeh duniya ki kaise reet hai<br><br>
+
+                                Dost yaar jab tak saath ho sab theek hai<br>
+                                Par jeevan meh aage badhna hai har koi dheet hai<br>
+                                Raat ke andhero meh ek dusre ko yaad karte<br>
+                                Hum bhi yeh duniya zamane ki baat karte<br><br>
+
+                                Na jaane iss mele meh kon kaha ja raha hai<br>
+                                Kiski manzil kaha hai kise pata hai<br>
+                                Har koi yaha khud ko talaash raha hai<br>
+                                Na jaane koi ki yeh duniya yaado ka ek mela hai.....<br><br>"
+                 data-translation="Who knows what a fair this world is<br>
+                                    Every person is playing their own game.<br>
+                                    Every moment someone loses somewhere and wins somewhere<br>
+                                    Every time, a person blames someone else for their own failure<br><br>
+
+                                    The world is searching for who knows what destination<br>
+                                    Everyone is deep in the ocean, searching for the shore.<br>
+                                    And everyone is fascinated by treasures.<br>
+                                    Who knows what the world's rules are.<br><br>
+
+                                    Friends and friends, everything is fine as long as we are together<br>
+                                    But in life, everyone is sad to move forward<br>
+                                    We remember each other in the darkness of the night.<br> 
+                                    This world also talks about the times.<br><br>
+
+                                    Who knows who is being called in this fair?<br>
+                                    Who knows whose destination is?<br>
+                                    Everyone is searching for themselves here.<br>
+                                    No one knows that this world is a fair of memories...<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_07 // SECURE</div>
+                <h2 class="poem-title-preview">Yeh duniya</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Hum yun hi jeevan jeete chale (We just keep living our lives)" 
+                 data-year="2025" 
+                 data-content="Jeevan sangharsho ki raan bhumi hai<br>
+                                Safalta kaha kisi ko yu hi mili hai<br>
+                                Har pal har lamha karam se bahre<br>
+                                Hum yun hi jeevan jeete chale<br><br>
+
+                                Jeevan yaado ka ek baksa hai<br>
+                                Karam fhal ne kisko baksha hai<br>
+                                Har saans hum umeedo se bahre<br>
+                                Hum yun hi jeevan jeete chale<br><br>
+
+                                Jeevan khusiyo ki rangeen kahani hai<br>
+                                Umeedo se bhari sab ki jawani hai<br>
+                                Har mod par hum yun hi aahe bhare<br>
+                                Hum yun hi jeevan jeete chale<br><br>
+
+                                Jeevan zimmedariyon ki ek lambi kadi hai<br>
+                                Aahe bharne se kiski jeevan sambhali hai<br>
+                                Har manzil ke liye hum sangharsh kare<br>
+                                Hum yun hi jeevan jeete chale<br><br>"
+                 data-translation="Life is the land of struggle<br>
+                                    Who has ever found success just like that?<br>
+                                    Every moment, every second, we are devoid of karma.<br>
+                                    We live life like this.<br><br>
+
+                                    Life is a box of memories.<br>
+                                    Who has been spared by karma?<br>
+                                    Every breath we are devoid of hope.<br>
+                                    We live life like this.<br><br>
+
+                                    Life is a spectrum of happiness.<br>
+                                    Everyone's youth is filled with hope.<br>
+                                    At every turn, we are filled with sighs.<br>
+                                    We live life like this.<br><br>
+
+                                    Life is a long chain of responsibilities.<br>
+                                    Whose life is sustained by sighs?<br>
+                                    We struggle for every destination.<br>
+                                    Let's live our lives like this<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_08 // SECURE</div>
+                <h2 class="poem-title-preview">Hum yun hi jeevan jeete chale</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Zindigi (Life)" 
+                 data-year="2025" 
+                 data-content="Zindigi teri ek sundar si kahani hai<br>
+                                Har pal kal ek yaad ban jani hai<br>
+                                Tu iss jahan meh pal do pal ka maheman hai<br>
+                                Kyu kisi par naraz hokar hai issko bitana hai<br>
+                                Pyaar karna aur hass kar jeete chale jana hai<br>
+                                Auro ki khushi meh muskurana hai<br>
+                                Har pal kuch paana aur khona hai<br>
+                                Par tujhko toh akele hi rona hai<br><br>
+
+                                Duniya zamane meh khusiya failana hai<br>
+                                Har gaam ko apne andhar sammet kar muskurana hai<br>
+                                Reet aur preet har kasam tujhe nibhana hai<br>
+                                Zindigi tujhe unn hi jeete hi chale jana hai<br>
+                                Jimehdariyo ka bojh tujhe akele hi uthana hai<br>
+                                Duniya ke kadam se kadam milakar chalte chale jana hai<br>
+                                Har sangharsh meh ek seekh chod jana hai<br>
+                                Aanth meh ek sundar si yaad ban kar reh jana hai<br><br>
+
+                                Zindigi meh har din tera apna hota hai<br>
+                                Insaan wahi hai jo aurro ke dukh meh rota hai<br>
+                                Kush raho aur sab ko kush rakho yeh sikhana hai<br>
+                                Muskurakar sab kuch jhel jana hai<br>
+                                Ek din achanak sab khatam hojana hai<br>
+                                Par uss din ke intzaar meh iss zindigi ko nahi gawana hai<br>
+                                Khali haat aaye hum iss duniya meh yeh yaad rakhna hai<br>
+                                Apne peeche yaado ka ek samandar chod jana hai<br><br>"
+                 data-translation="Your life is a beautiful story<br>
+                                    Every moment becomes a memory tomorrow<br>
+                                    You are a guest in this world for a moment or two<br>
+                                    Why are you angry with anyone? You have to tell it<br>
+                                    You have to love and live with a smile<br>
+                                    You have to smile in the happiness of others<br>
+                                    Every moment you gain and lose something<br>
+                                    But you have to cry alone.<br><br>
+
+                                    You have to spread happiness in the world<br>
+                                    You have to embrace every village and smile<br>
+                                    You have to fulfill every oath of love and affection<br>
+                                    You have to live life with them<br>
+                                    The burden of responsibilities is on you. We must rise alone.<br>
+                                    We must keep moving forward, step by step, in step with the world.<br>
+                                    In every struggle, we must leave behind a lesson.<br>
+                                    In the end, we must remain as a beautiful memory.<br><br.
+
+                                    In life, every day is yours.<br>
+                                    A human being is one who cries at the sorrows of others.<br>
+                                    Be happy and keep everyone happy, this is what we teach.<br>
+                                    Everything will be lost with a smile.<br>
+                                    One day, everything will suddenly end.<br>
+                                    But we must not waste this life waiting for that day.<br>
+                                    We come to this world empty-handed, we must keep this memory behind us.<br>
+                                    I want to leave behind an ocean of memories<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_09 // SECURE</div>
+                <h2 class="poem-title-preview">Zindigi</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Maa (Mom)" 
+                 data-year="2025" 
+                 data-content="Aaj phir meri aankh bhar aayi<br>
+                                Aur poochne woh aansoo maa daudi chali aayi<br>
+                                Godh meh jiske sar rakh kar roya tha mai<br>
+                                Par bilkul na bataya paya ki koya gaya tha mai<br><br>
+
+                                Puch thi maa kya hua har baar<br>
+                                Sochta tha saare baatey bol du ek baar<br>
+                                Shayad maan mera halka ho jaye<br>
+                                Saare kasht uss godh meh sama jaye<br><br>
+
+                                Thak haar kar zamaane se<br>
+                                Lautta hun maa teri godh meh kisi na kisi bahane se<br>
+                                Har baar maa mera har aansoo poochti<br>
+                                Aur khud kone meh jaa kar maa tum chupke se rooti<br><br>
+
+                                Dekh usski yeh haalat aur toota hun mai<br>
+                                Lagne lagta hai nalayak beta hun mai<br>
+                                Abb maa ke godh meh toh kya kahi nahi rota hun mai<br>
+                                Saach meh lagta hai bilkul akela hun mai<br><br>
+
+                                Dekh meri yeh haalat maa phir bhi sab samjti<br>
+                                Hausla banaye rakho yeh samjhati<br>
+                                Raatko khana apne haato se khilati<br>
+                                Khud bhale bhuke pet sojati<br>
+
+                                Na jane kab duniya ki har khushi de sankunga<br>
+                                Tumne jis kabil banaya kab woh mazil haasil karunga<br> 
+                                Tum bhi himat banaye rakhna maa<br>
+                                Ek din tumhare kadmo meh jannat lakar rakhunga.....<br><br>"
+                 data-translation="Today, my eyes welled up again<br>
+                                    And Mother came running to ask about those tears<br>
+                                    The one whose head I had laid down and cried<br>
+                                    But I couldn't quite tell her what had happened<br><br>
+
+                                    I asked Mother what happened every time<br>
+                                    I thought I'd tell her everything once<br>
+                                    Maybe Mother, I'd feel lighter<br>
+                                    All my troubles would be contained in that lap<br><br>
+
+                                    So, defeated by the world<br>
+                                    I return to your lap, Mother, under one pretext or another<br>
+                                    Every time, Mother asks about my every tear<br>
+                                    And Mother, you silently go into a corner<br><br>
+
+                                    Look at his condition, and I'm broken.<br>
+                                    I feel like I'm a worthless son.<br>
+                                    Now I haven't said a word yet, I've cried in my mother's lap.<br>
+                                    Really, I feel completely alone.<br><br>
+
+                                    Look at my condition, my mother understands everything.<br>
+                                    She advises me to keep my spirits up.<br>
+                                    She feeds me with her own hands at night.<br>
+                                    She comforts me even if she's hungry.<br><br>
+
+                                    I don't know when I'll be able to give you all the joys of the world.<br>
+                                    When will I achieve the goal you made me capable of?<br>
+                                    You too, keep your courage, mother.<br>
+                                    One day, I'll place heaven at your feet...<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_10 // SECURE</div>
+                <h2 class="poem-title-preview">Maa</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Haalat (Situations)" 
+                 data-year="2025" 
+                 data-content="Zindigi yeh kis mod pe aa ruki hai<br>
+                                Chunautiyo ki lambi kadi hai<br>
+                                Ratri ka gahan andhera hai<br>
+                                Kisne kaha jawani sunehra sawera hai<br><br>
+
+                                Sunehre the woh din bachpan ke<br>
+                                Kal ki koi fikr nahi baal maan pe<br>
+                                Muskurate khelte kudhte har din<br>
+                                Aaj dekho kis mod pe ruk kar yaad kare woh suhane din<br><br>
+
+                                Abb har aankh meh basta hai umeedo ka sapna<br>
+                                Inhi aankho ke aage dikhta hai haqeekat apna<br>
+                                Aansu har roj inn aankho ko saaf kar jate<br>
+                                Par uss ratri ke gahan andhere meh sapne phir bunn jaate<br><br>
+
+                                Apno se chot kha kar garam loha bhi jor se rota hai<br>
+                                Tu toh sona hai taap kar hi kundan hota hai<br>
+                                Loh ki uss garmi se bhi tujhe gujarna hai<br>
+                                Chamak kar iss ratri meh sab ko raah dikhana hai<br><br> 
+
+                                Chahe sab tujhko chamakta pathar samaj chod jaye<br>
+                                Jo tujhko uthaye usski kismat badal jaye<br>
+                                Tujhko tab tak haar nahi maanna hai<br>
+                                Taapte hue kudh ko aur nikharana hai<br><br>
+
+                                Zindigi toh har mod pe chanautiya lati hai<br>
+                                Gahan ratri hi apne saath sunhera sawera lati hai<br>
+                                Inn chanutiyo se raato se darna nahi hai tujhe<br>
+                                Innse thak kar haar bhi nahi maana hai tujhe<br><br>
+
+                                Kal ka bhor aaj kis ne dekha hai<br>
+                                Toh agle pal kya hoga yeh tujhko kyu soochna hai<br> 
+                                Tera bas ek hi lakshya hai ki apne jeevan lakshya ko safal kar dikhana hai<br>
+                                Apne jeevan lakshya ko safal kar dikhana hai<br><br>"
+                 data-translation="At what point has life come to a standstill?<br>
+                                    It's a long line of choices.<br>
+                                    The night is deep in darkness.<br>
+                                    Who said youth is a golden dawn?<br><br>
+
+                                    Golden were those childhood days.<br>
+                                    No worries about tomorrow, children in their hearts.<br>
+                                    Smiling, playing, and jumping every day.<br>
+                                    Today, let's see at what point we should stop and remember those beautiful days.<br><br>
+
+                                    Now, in every eye, there resides a dream of hope.<br>
+                                    Before these very eyes, we see our own reality.<br>
+                                    Tears wipe these eyes every day.<br>
+                                    But in the deep darkness of that night, dreams are formed again.<br><br>
+
+                                    Hot iron after being hit by loved ones. He cries loudly.<br>
+                                    You have to sleep; only by heating does one become gold.<br>
+                                    You have to endure that heat of iron.<br>
+                                    You have to shine and show everyone the way this night.<br><br>
+
+                                    Even if everyone considers you a shining stone,<br>
+                                    May the fate of the one who picks you up change.<br>
+                                    You have to not accept defeat until then.<br>
+                                    You have to make something shine even more while heating.<br><br>
+
+                                    Life brings challenges at every turn.<br>
+                                    Only the dark night brings with it a golden dawn.<br>
+                                    You have to not be afraid of these challenges or nights.<br>
+                                    Don't accept defeat even after getting tired of them. Yes, you<br><br>
+
+                                    Who has seen the dawn of tomorrow today?<br>
+                                    So why do you have to worry about what will happen next moment?<br>
+                                    Your only goal is to make your life mission a success.<br>
+                                    You have to make your life mission a success.<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_11 // SECURE</div>
+                <h2 class="poem-title-preview">Haalat</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Dil ki baatey (The Heart Talks)" 
+                 data-year="2025" 
+                 data-content="Kabhi kisi rishtey meh buddhu mat banna<br>
+                                Yaha koi kisi ka saga nahi hota<br>
+                                Apne daulat ke pyase hote hai<br>
+                                Aur dost matlab ke parwane hote hai<br><br>
+
+                                Nahi kahta mai har koi aysa hota hai<br>
+                                Par har baar koi na koi iss wahem ko tod jata hai<br>
+                                Kahte hai musibat meh kaam aate hai apne<br>
+                                Par yaha musibat meh saath koi nahi dikhta hai<br><br>
+
+                                Aaj kal bhai ka bharosa bhai par nahi raha<br>
+                                Aaj kal bete ka rishta maa se nahi raha<br>
+                                Kaisa zalim zamana hai yeh dekho<br>
+                                Apne maan ka kaam kare toh aawara aur inke maan ka kaam kare toh nakara kahta hai<br><br>
+
+                                Nahi karna abhi kisi pe bharosa<br>
+                                Nahi chahiye kisika sahara<br>
+                                Nahi hai kal ki subha dekhne ki aarzoo<br>
+                                Nahi hona kisi re rubha rooh<br><br>
+
+                                Toh bas chala mai apne maan ko todh ne<br>
+                                Chod diya sab se yeh rishtey natey<br>
+                                Abb iss dil ko patthar kar liya hai maine<br>
+                                Baayis ke umar meh sattar ka jeevan abb jeeta chala ja raha hoon....abb jeeta chala ja raha hoon...<br><br>"
+                 data-translation="Never be foolish in any relationship.<br>
+                                    No one here is anyone's true friend.<br>
+                                    They thirst for their own wealth.<br>
+                                    And friends are selfish moths.<br><br>
+
+                                    I don't say everyone is like that.<br>
+                                    But every time someone breaks this trust.<br>
+                                    They say they help in times of trouble.<br>
+                                    But here, no one seems to be there for you in times of trouble.<br><br>
+
+                                    These days, a brother no longer trusts his brother.<br>
+                                    These days, a son no longer has a relationship with his mother.<br>
+                                    Look at how cruel this world is.<br.
+                                    If you do your mother's work, you become a wanderer, and if you do their work, you become a reject. He says:<br><br>
+
+                                    I don't trust anyone right now.<br>
+                                    I don't need anyone's support.<br>
+                                    I don't want to see tomorrow's morning.<br>
+                                    I don't want anyone's heart.<br><br>
+
+                                    So, I'm done with my mother.<br>
+                                    I've broken all relationships.<br>
+                                    Now I've turned this heart into stone.<br>
+                                    At the age of twenty-two, I'm living a life of seventy. Now I'm winning... Now I'm winning...<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_12 // SECURE</div>
+                <h2 class="poem-title-preview">Dil ki baatey</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Dil pe mere hue kuch ayse sitam (Some such atrocities happened to my heart)" 
+                 data-year="2025" 
+                 data-content="Dil pe mere hue kuch ayse sitam<br>
+                                Tute dil ke tukde lekar barbaad hue hum<br>
+                                Purane ishq ne diye naye zakham<br>
+                                Aur nayi chaat ne bhi na lagaya uss par malham<br><br>
+
+                                Dil cheez hai nazuk si badi<br>
+                                Par sambhal paya na issko kabhi<br>
+                                Bahela fusla kar chura lejate isko sabhi<br>
+                                Apna khel khel kar ek gend ki tarha chod jate sabhi<br><br>
+
+                                Dil na jane q karta ayse karam<br>
+                                Jakar mil jata hai sabhi se aur bezar hote hai hum<br>
+                                Ishq ki inn raho meh ho jata hai woh ghum<br>
+                                Haar mod par apne tukde chod jata gum suum<br><br>
+
+                                Par maanta nahi haar apna woh<br>
+                                Umeed ki aakhri door ko thaam kar rakhta woh<br>
+                                Phir dil pe mere hote kuch ayse sitam<br>
+                                Tute dil ke tukde lekar barbaad hote hum<br><br>"
+                 data-translation="Some such troubles have happened to my heart.<br>
+                                    Taking the pieces of a broken heart, we were ruined.<br>
+                                    Old love inflicted new wounds.<br>
+                                    And even a new love did not heal it.<br><br>
+
+                                    The heart is a delicate thing, but I have never been able to control it.<br>
+                                    Everyone seduces it and steals it.<br>
+                                    Everyone plays their game and leaves it like a ball.<br><br>
+
+                                    I don't know why the heart does such things.<br>
+                                    It meets everyone and we grow bored.<br>
+                                    It gets lost in these paths of love.<br>
+                                    It leaves behind its pieces at every turn, lost in grief.<br><br>
+
+                                    But it does not accept defeat, it holds on to the last stretch of hope.<br> 
+                                    He keeps doing it.<br>
+                                    Then my heart would be in such a state.<br>
+                                    Taking the pieces of my broken heart, I would be ruined.<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_13 // SECURE</div>
+                <h2 class="poem-title-preview">Dil pe mere hue kuch ayse sitam</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Aap ayi toh nasha hone laga (You came and I started getting intoxicated)" 
+                 data-year="2025" 
+                 data-content="Savan ki chandni raat meh<br>
+                                Mogre si maheki ek baagh meh<br>
+                                Aap ayi toh nasha hone laga<br><br>
+
+                                Gaam ki kali raat meh<br>
+                                Naumeedi si jeevan kaal meh<br>
+                                Rote hue haalat meh<br>
+                                Tote dil ke mohtaj meh<br>
+                                Aap ayi toh nasha hone laga<br><br> 
+
+                                Hone laga nasha aapki sughand khusboo aur aapke hone ke ahasas meh<br>
+                                Hone laga nasha aapse ek mulakat meh<br>
+                                Hone laga nasha aapke saath jaam ke barsat meh<br>
+
+                                Woh mehfil hi kya jiska hisa aap nahi<br>
+                                Woh manzil hi kya jiski shuruwaat aap nahi<br>
+                                Jeevan meh issse pahle koi lat nahi thi<br>
+                                Kasam se jab aap aayi toh nasha hone laga<br><br>"
+                 data-translation="On a moonlit night in the month of Sawan<br>
+                                    In a garden as fragrant as a jasmine<br>
+                                    When you came, I felt intoxicated<br><br>
+
+                                    On a dark night of summer<br>
+                                    In a life as hopeless as time<br>
+                                    In a weeping state<br>
+                                    In the longing of a broken heart<br>
+                                    When you came, I felt intoxicated<br><br>
+
+                                    I felt intoxicated by your sweet fragrance and the feeling of your presence<br>
+                                    I felt intoxicated by a single meeting with you<br>
+                                    I felt intoxicated with you in a rainy evening<br><br>
+
+                                    What is that gathering of which you are not a part?<br>
+                                    What is that destination of which you are not the beginning?<br>
+                                    There was no delay in life before this.<br>
+                                    I swear When you came I started feeling intoxicated<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_14 // SECURE</div>
+                <h2 class="poem-title-preview">Aap ayi toh nasha hone laga</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+            <div class="poem-card" 
+                 data-title="Alvida (GoodBye)" 
+                 data-year="2025" 
+                 data-content="Aa jate hai hum iss duniya meh bas yuu hi ek din<br>
+                                Aakhe kholte doctor ko dekhte aur phir rote<br>
+                                Uss pal se kafi samay tak kuch samaj nahi pate<br>
+                                Par maa aur papa ko meethi yaade de jate<br>
+                                Bade ho kar uss maasumiyat ko alvida kah jate<br><br>
+
+                                Ek din ayse hi school meh pahunch jate<br>
+                                Pahle din naye chahre dekh shayad dar jate<br>
+                                Par har din unse mil kar ek naya rishta banate<br> 
+                                Unhe hum apna dost bulate jin ke saath hum khati meethi yaade banate<br>
+                                Phir kuch saalo meh dasvi ki pareeksha likhte<br>
+                                Aur kayi saari yaado ke saath unn dosto ko alvida kah jate<br><br>
+
+                                Humesha yeh sunna tha ki dasvi ke baad jeevan aaram hai<br>
+                                Aur hum sab uss ka intazar karte<br>
+                                Phir jaante ki abhi kaha aaram abhi toh college baki hai<br>
+                                Jaha apne jeevan meh kabhi na bhoolne wali yaade banate<br>
+                                Phir kuch naye dosto ke saat sansar ko samajh ne baith jate<br>
+                                Inn sab ke saath thodi samajdari seekh kar jeevan ka tajurba lene unnhe hum alvida kah jate<br><br>
+
+                                Jeevan ke zimmedariyon meh ayse kho jate<br>
+                                Par har mod par unn yaado ko yaad kar ruk jate<br>
+                                Pal bhr ko yeh sochte ki kaash woh din kabhi pure na hote<br>
+                                Ruk jata yeh waqt aur yeh sansar unn hi yaado meh kahi<br>
+                                Jin meh humare andar khushiya aur maasumiyat thi bhari<br>
+                                Phir hosh aata haqeekat khud se wakif karata<br>
+                                Aur hum unn vicharao ko bhi alvida kah jate<br><br>"
+                 data-translation="We come to this world just like that one day.<br>
+                                    Open our eyes, see the doctor, and then cry.<br>
+                                    From that moment on, we don't understand anything for a long time.<br>
+                                    But we leave sweet memories to Mom and Dad.<br.
+                                    As we grow up, we say goodbye to that innocence.<br><br>
+
+                                    One day, we arrive at school just like that.<br>
+                                    At first, we might be afraid to see new faces.<br>
+                                    But every day, meeting them, we form a new bond.<br>
+                                    We call them our friends, with whom we make sweet memories.<br>
+                                    Then, in a few years, we write the 10th grade exam.<br>
+                                    And with many memories, we say goodbye to those friends. We go.<br><br>
+
+                                    We always hear that life is at peace after graduation.<br>
+                                    And we all look forward to it.<br>
+                                    Then we find out where the peace is. College is still left.<br>
+                                    Where we make memories that we will never forget.<br>
+                                    Then we sit down with some new friends to understand the world.<br>
+                                    We learn a little wisdom from them and experience life.<br>
+                                    We say goodbye to them.<br><br>
+
+                                    We find ourselves immersed in life's responsibilities.<br>
+                                    But at every turn, we stop, remembering those memories.<br>
+                                    Every moment, we wish those days would never be complete.<br>
+                                    We stop. This time and this world are spent in memories<br>
+                                    that filled us with joy and innocence<br>
+                                    then consciousness returns, reality reveals itself<br>
+                                    and we say goodbye to those thoughts too.<br><br>">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="card-meta">ENTRY_15 // SECURE</div>
+                <h2 class="poem-title-preview">Alvida</h2>
+                <div class="read-btn">CLICK_TO_DECRYPT ></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">×</span>
+            <div class="modal-header">
+                <span id="modal-id">ENTRY_#</span>
+                <span id="modal-year">YEAR</span>
+            </div>
+            <h2 id="modal-title">Poem Title</h2>
+            <div class="modal-body" id="modal-text">
+                </div>
+            
+            <div class="modal-footer">
+                <button id="translate-btn" class="translate-toggle">
+                    <span class="icon">⇄</span> TRANSLATE_TO_ENGLISH
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="audio-control" id="audio-btn">
+        <div class="audio-icon">
+            <svg class="mute-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg class="sound-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        </div>
+        <div class="audio-text">AUDIO: OFFLINE</div>
+        
+        <div class="visualizer">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop autoplay>
+        <source src="assets/audio/melody.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // === MODAL LOGIC ===
+        const modal = document.getElementById('poem-modal');
+        const closeModal = document.getElementById('close-modal');
+        const cards = document.querySelectorAll('.poem-card');
+        const translateBtn = document.getElementById('translate-btn');
+        
+        // Modal Elements
+        const mTitle = document.getElementById('modal-title');
+        const mText = document.getElementById('modal-text');
+        const mYear = document.getElementById('modal-year');
+        const mId = document.getElementById('modal-id');
+
+        // Variables
+        let currentHindi = "";
+        let currentEnglish = "";
+        let isEnglish = false;
+
+        // OPEN MODAL
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                const title = card.getAttribute('data-title');
+                const year = card.getAttribute('data-year');
+                
+                currentHindi = card.getAttribute('data-content');
+                currentEnglish = card.getAttribute('data-translation');
+                
+                isEnglish = false;
+                translateBtn.innerHTML = '<span class="icon">⇄</span> TRANSLATE_TO_ENGLISH';
+
+                mTitle.textContent = title;
+                mText.innerHTML = currentHindi; 
+                mYear.textContent = year;
+                mId.textContent = `ENTRY_0${index + 1}`;
+
+                modal.classList.add('active');
+            });
+        });
+
+        // TRANSLATE BUTTON
+        translateBtn.addEventListener('click', () => {
+            if (isEnglish) {
+                mText.style.opacity = 0;
+                setTimeout(() => {
+                    mText.innerHTML = currentHindi;
+                    translateBtn.innerHTML = '<span class="icon">⇄</span> TRANSLATE_TO_ENGLISH';
+                    mText.style.fontFamily = "'Rozha One', serif"; 
+                    mText.style.opacity = 1;
+                }, 200);
+                isEnglish = false;
+            } else {
+                mText.style.opacity = 0;
+                setTimeout(() => {
+                    mText.innerHTML = currentEnglish;
+                    translateBtn.innerHTML = '<span class="icon">↺</span> REVERT_TO_ORIGINAL';
+                    mText.style.fontFamily = "'Roboto Mono', monospace"; 
+                    mText.style.opacity = 1;
+                }, 200);
+                isEnglish = true;
+            }
+        });
+
+        // CLOSE
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target == modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+       // === SMART AUDIO LOGIC (Persist & Autoplay) ===
+        const audioBtn = document.getElementById('audio-btn');
+        const audioFile = document.getElementById('bg-music');
+        const audioText = audioBtn.querySelector('.audio-text');
+        const muteIcon = audioBtn.querySelector('.mute-svg');
+        const soundIcon = audioBtn.querySelector('.sound-svg');
+
+        // 1. Set Volume
+        audioFile.volume = 0.3; 
+
+        // 2. Restore playback position (Memory)
+        // This makes the music resume exactly where it stopped on refresh
+        const savedTime = localStorage.getItem('poetryMusicTime');
+        if (savedTime) {
+            audioFile.currentTime = parseFloat(savedTime);
+        }
+
+        // 3. Save playback position every second
+        setInterval(() => {
+            if (!audioFile.paused) {
+                localStorage.setItem('poetryMusicTime', audioFile.currentTime);
+            }
+        }, 1000);
+
+        // 4. Function to update UI to "Online"
+        function setAudioOnline() {
+            audioBtn.classList.add('audio-active');
+            audioText.innerText = "AUDIO: ONLINE";
+            muteIcon.style.display = 'none';
+            soundIcon.style.display = 'block';
+        }
+
+        // 5. Function to update UI to "Offline"
+        function setAudioOffline() {
+            audioBtn.classList.remove('audio-active');
+            audioText.innerText = "AUDIO: OFFLINE";
+            muteIcon.style.display = 'block';
+            soundIcon.style.display = 'none';
+        }
+
+        // 6. Attempt Autoplay on Load
+        var playPromise = audioFile.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                // Autoplay worked!
+                setAudioOnline();
+            })
+            .catch(error => {
+                // Autoplay was blocked by browser. 
+                // SOLUTION: Wait for the user's first click anywhere to start it.
+                console.log("Autoplay prevented. Waiting for interaction.");
+                document.body.addEventListener('click', () => {
+                    audioFile.play();
+                    setAudioOnline();
+                }, { once: true }); // 'once: true' means this listener runs only 1 time
+            });
+        }
+
+        // 7. Manual Button Click Handler
+        audioBtn.addEventListener('click', (e) => {
+            // Stop the body click listener from firing if we click the button directly
+            e.stopPropagation(); 
+
+            if (audioFile.paused) {
+                audioFile.play();
+                setAudioOnline();
+            } else {
+                audioFile.pause();
+                setAudioOffline();
+            }
+        });
+    </script>
+</body>
+</html>

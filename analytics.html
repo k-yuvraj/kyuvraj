@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sector 01 | Intelligence</title>
+    <link rel="stylesheet" href="schematics.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schematic-body">
+
+    <div class="data-scanner-overlay"></div>
+
+    <nav class="schem-nav">
+        <a href="index.html#armory" class="schem-back">
+            <span class="bracket">[</span> RETURN_TO_BASE <span class="bracket">]</span>
+        </a>
+        <div class="schem-status">SECTOR_01: <span class="blink" style="color:var(--cyan)">ACTIVE</span></div>
+    </nav>
+
+    <div class="schem-container">
+        <header class="schem-header">
+            <h1>DATA_INTELLIGENCE</h1>
+            <div class="scan-line"></div>
+            <p>VISUALIZATION // PREDICTIVE_MODELS // SQL_QUERIES</p>
+        </header>
+
+        <div class="blueprint-grid">
+
+            <div class="tech-card ongoing-card" 
+                 data-status="ongoing"
+                 data-title="Predictive Maintenance Dashboard"
+                 data-specs="Python, SQL, Power BI"
+                 data-long-desc="An industrial IoT solution designed to predict equipment failure before it occurs. Uses real-time sensor data and Random Forest regression to calculate Remaining Useful Life (RUL)."
+                 data-report-link="project-reports/analytics/predictive-maintenance-report.html"
+                 data-progress='{"Core Logic": 100, "ML Model": 100, "Dashboard UI": 80, "Alert System": 0}'>
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">DAT_006</span> 
+                    <span class="tech-status status-ongoing">● PAUSED</span>
+                </div>
+                <h3>Predictive Maintenance</h3>
+                <p class="tech-desc">ML-driven dashboard for real-time equipment health monitoring and failure prediction.</p>
+                <div class="tech-specs"><span>PYTHON</span> <span>SQL</span></div>
+                <div class="schem-btn">VIEW_PROGRESS ></div>
+            </div>
+
+            <div class="tech-card ongoing-card" 
+                data-status="ongoing"
+                data-title="Stock Market Predictor"
+                data-specs="Python, Pandas, LSTM"
+                data-long-desc="Development of a proprietary Python LSTM deep learning model for short-term stock price forecasting. Data ingested via custom API script."
+                data-report-link="project-reports/analytics/stock-market-predictor-report.html" 
+                data-progress='{"Data Ingestion": 100, "Model Training": 75, "Deployment": 20}'>
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">DAT_005</span>
+                    <span class="tech-status status-ongoing">● IN_PROGRESS</span>
+                </div>
+                <h3>Stock Market Predictor</h3>
+                <p class="tech-desc">Python LSTM model to forecast market trends based on historical data.</p>
+                <div class="tech-specs"><span>PYTHON</span> <span>PANDAS</span></div>
+                <div class="schem-btn">VIEW_PROGRESS ></div>
+            </div>
+
+            <div class="tech-card completed-card" 
+                 data-status="completed"
+                 data-title="Bike Sales Dashboard"
+                 data-specs="Power BI, SQL, Excel"
+                 data-long-desc="Comprehensive sales dashboard tracking performance of bikes and accessories, featuring customer demographics and regional profit analysis."
+                 data-data-link="assets/docs/Bike_Sales.csv"
+                 data-report-link="project-reports/analytics/bike-sales-report.html">
+                 
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">DAT_004</span> 
+                    <span class="tech-status status-completed">● COMPLETED</span>
+                </div>
+                <h3>Bike & Accessories Sales</h3>
+                <p class="tech-desc">Dashboard tracking product performance and regional sales trends.</p>
+                <div class="tech-specs"><span>POWER BI</span> <span>EXCEL</span></div>
+                <div class="schem-btn">VIEW_PROOF ></div>
+            </div>
+
+            <div class="tech-card completed-card" 
+                data-status="completed"
+                data-title="Washington EV Analysis"
+                data-specs="Tableau, Python, Excel"
+                data-long-desc="Interactive Tableau dashboard tracking Electric Vehicle adoption trends, model popularity, and infrastructure gaps across Washington State counties."
+                data-data-link="assets/docs/Electric_Vehicle_Population_Data.csv"
+                data-report-link="project-reports/analytics/washington-ev-analysis-report.html">
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">DAT_003</span> 
+                    <span class="tech-status status-completed">● COMPLETED</span>
+                </div>
+                <h3>Washington EV Analysis</h3>
+                <p class="tech-desc">Interactive dashboard visualizing EV adoption trends and infrastructure density.</p>
+                <div class="tech-specs"><span>TABLEAU</span> <span>PYTHON</span></div>
+                <div class="schem-btn">VIEW_PROOF ></div>
+            </div>
+
+            <div class="tech-card completed-card" 
+                 data-status="completed"
+                 data-title="Automotive Sales Dashboard"
+                 data-specs="Power BI, SQL"
+                 data-long-desc="Strategic dashboard to visualize sales and profitability metrics, focusing on regional performance."
+                 data-data-link="assets/docs/Classic_Models.xlsx"
+                 data-report-link="project-reports/analytics/automotive-report.html">
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">DAT_002</span> 
+                    <span class="tech-status status-completed">● COMPLETED</span>
+                </div>
+                <h3>Automotive Sales</h3>
+                <p class="tech-desc">Strategic dashboard visualizing sales and profitability metrics.</p>
+                <div class="tech-specs"><span>POWER BI</span> <span>SQL</span></div>
+                <div class="schem-btn">VIEW_PROOF ></div>
+            </div>
+
+            <div class="tech-card completed-card" 
+                 data-status="completed"
+                 data-title="Netflix Dashboard"
+                 data-specs="Power BI, SQL"
+                 data-long-desc="To understand and analyse user content preference according to region, genre, and rating. The project built a strategic dashboard to visualize content consumption patterns."
+                 data-data-link="assets/docs/Netflix+Data.csv" 
+                 data-report-link="project-reports/analytics/netflix-report.html"> 
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">DAT_001</span>
+                    <span class="tech-status status-completed">● COMPLETED</span>
+                </div>
+                <h3>Netflix Dashboard</h3>
+                <p class="tech-desc">Dashboard analyzing user content preferences according to region, genre, and rating.</p>
+                <div class="tech-specs"><span>POWER BI</span> <span>SQL</span></div>
+                <div class="schem-btn">VIEW_PROOF ></div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">×</span>
+            <div class="modal-header">
+                <span id="modal-id">PRJ_#</span>
+                <span id="modal-specs">SPECS</span>
+            </div>
+            <h2 id="modal-title">Project Title</h2>
+            
+            <div id="modal-body-content">
+                </div>
+            
+            <div class="modal-footer">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('project-modal');
+            const closeModal = document.getElementById('close-modal');
+            const cards = document.querySelectorAll('.tech-card');
+            const modalFooter = modal.querySelector('.modal-footer'); 
+
+            closeModal.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => {
+                if (e.target.id === 'project-modal') {
+                    modal.classList.remove('active');
+                }
+            });
+
+            cards.forEach((card, index) => {
+                card.addEventListener('click', () => {
+                    // Extract Data Attributes
+                    const status = card.getAttribute('data-status');
+                    const title = card.getAttribute('data-title');
+                    const specs = card.getAttribute('data-specs');
+                    const longDesc = card.getAttribute('data-long-desc');
+                    const dataLink = card.getAttribute('data-data-link');
+                    const reportLink = card.getAttribute('data-report-link'); 
+                    const projectId = card.querySelector('.tech-id').textContent;
+
+                    // Fill Modal Content
+                    document.getElementById('modal-id').textContent = projectId;
+                    document.getElementById('modal-specs').textContent = specs;
+                    document.getElementById('modal-title').textContent = title;
+                    
+                    const modalBody = document.getElementById('modal-body-content');
+                    modalBody.innerHTML = `<p class="modal-description">${longDesc}</p>`;
+                    
+                    // --- DYNAMIC FOOTER BUTTONS ---
+                    modalFooter.innerHTML = ''; 
+
+                    if (status === 'completed') {
+                        // Logic for completed projects
+                        // Check if reportLink already contains '?' to avoid double '?'
+                        const separator = reportLink.includes('?') ? '&' : '?';
+                        const finalReportUrl = `${reportLink}${separator}id=${projectId}`;
+
+                        modalFooter.innerHTML = `
+                            <a href="${dataLink}" download target="_blank" class="schem-btn dual-btn dataset-btn">VIEW_DATASET</a>
+                            <a href="${finalReportUrl}" class="schem-btn dual-btn report-btn">VIEW_PROOF ></a>
+                        `;
+                        
+                    } else if (status === 'ongoing') {
+                        // Logic for ongoing projects
+                        const progressData = JSON.parse(card.getAttribute('data-progress'));
+                        
+                        // Build Progress Bars
+                        let progressHTML = '<div class="progress-container">';
+                        for (const task in progressData) {
+                            const percent = progressData[task];
+                            progressHTML += `
+                                <div class="progress-bar-wrap">
+                                    <span class="progress-label">${task}</span>
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-inner" style="width: ${percent}%">
+                                            <span>${percent}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        progressHTML += '</div>';
+                        modalBody.innerHTML += progressHTML;
+                        
+                        // Use the specific report link from the card attribute
+                        // If the link is "#", fallback to a default report
+                        let finalOngoingUrl = reportLink;
+                        if (!finalOngoingUrl || finalOngoingUrl === '#') {
+                             finalOngoingUrl = `analytics/project-report-2.html?id=${projectId}`;
+                        } else {
+                             const separator = finalOngoingUrl.includes('?') ? '&' : '?';
+                             finalOngoingUrl = `${finalOngoingUrl}${separator}id=${projectId}`;
+                        }
+
+                        modalFooter.innerHTML = `
+                            <a href="${finalOngoingUrl}" class="schem-btn single-btn">VIEW_PROGRESS ></a>
+                        `;
+                    }
+
+                    modal.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

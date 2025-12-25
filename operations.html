@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sector 03 | Strategic Intelligence</title>
+    <link rel="stylesheet" href="schematics.css">
+    <link rel="stylesheet" href="operations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schematic-body blueprint-theme">
+
+    <div class="data-scanner-overlay"></div>
+
+    <nav class="schem-nav">
+        <a href="index.html#armory" class="schem-back">
+            <span class="bracket">[</span> RETURN_TO_BASE <span class="bracket">]</span>
+        </a>
+        <div class="schem-status">SECTOR_03: <span class="blink" style="color:var(--blueprint-accent)">ACTIVE</span></div>
+    </nav>
+
+    <div class="schem-container">
+        <header class="schem-header">
+            <h1>STRATEGIC_INTELLIGENCE</h1>
+            <div class="scan-line"></div>
+            <p>PROCESS_OPTIMIZATION // MARKET_DYNAMICS // ROI_DRIVEN_LOGIC</p>
+        </header>
+
+        <div class="blueprint-grid">
+    
+            <div class="tech-card completed-card" 
+                data-status="completed"
+                data-title="Business Strategy & Operations Management"
+                data-specs="Market Analysis, Stakeholder Mgmt, ROI Optimization"
+                data-long-desc="Led end-to-end business operations as a Co-Founder. Focused on identifying market gaps, optimizing resource allocation, and bridging the gap between technical engineering and customer requirements."
+                data-report-link="project-reports/operations/business-strategy-report.html"> 
+                
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                
+                <div class="tech-header">
+                    <span class="tech-id">BUS_001</span>
+                    <span class="tech-status status-completed">● OPERATIONAL</span>
+                </div>
+                
+                <h3>Business Strategy & Ops</h3>
+                <p class="tech-desc">Strategic leadership and project management from an entrepreneurial perspective.</p>
+                
+                <div class="tech-specs">
+                    <span>STRATEGY</span> 
+                    <span>OPS_MGMT</span> 
+                    <span>ROI</span>
+                </div>
+
+            </div>
+
+            <div class="tech-card ongoing-card" 
+                data-status="ongoing"
+                data-title="Market Expansion Analysis"
+                data-progress='{"Analysis": 85, "Strategy": 40, "Risk": 20}'>
+                <div class="card-corner top-left"></div><div class="card-corner top-right"></div>
+                <div class="card-corner bottom-left"></div><div class="card-corner bottom-right"></div>
+                <div class="tech-header">
+                    <span class="tech-id">BUS_002</span>
+                    <span class="tech-status status-ongoing">● PROCESSING</span>
+                </div>
+                <h3>Growth Forecasting</h3>
+                <p class="tech-desc">Analyzing customer acquisition costs (CAC) and LTV for scalable expansion.</p>
+                <div class="tech-specs"><span>CAC</span> <span>LTV</span> <span>FINANCE</span></div>
+                <div class="schem-btn">INITIALIZING...</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">×</span>
+            <div class="modal-header">
+                <span id="modal-id">BUS_#</span>
+                <span id="modal-specs">SPECS</span>
+            </div>
+            <h2 id="modal-title">Strategic Directive</h2>
+            <div id="modal-body-content"></div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('project-modal');
+            const closeModal = document.getElementById('close-modal');
+            const cards = document.querySelectorAll('.tech-card');
+            const modalFooter = modal.querySelector('.modal-footer'); 
+
+            closeModal.addEventListener('click', () => modal.classList.remove('active'));
+            
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const status = card.getAttribute('data-status');
+                    const title = card.getAttribute('data-title');
+                    const specs = card.getAttribute('data-specs');
+                    const longDesc = card.getAttribute('data-long-desc');
+                    const reportLink = card.getAttribute('data-report-link'); 
+
+                    document.getElementById('modal-id').textContent = card.querySelector('.tech-id').textContent;
+                    document.getElementById('modal-specs').textContent = specs;
+                    document.getElementById('modal-title').textContent = title;
+                    
+                    const modalBody = document.getElementById('modal-body-content');
+                    modalBody.innerHTML = `<p class="modal-description">${longDesc}</p>`;
+                    
+                    modalFooter.innerHTML = '';
+
+                    modal.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
